@@ -1,0 +1,19 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Fei-Fei.PcbDoc   5/7/2024  4:04:02 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Fei-Fei-RoundHoles.TXT
+ASCII SlotHoles File : Fei-Fei-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.7mm (28mil)           +/-0.076mm (3mil)                 Slot              8         PTH        302.32mm (11.90inch)
+T2      0.711mm (28mil)                                           Round             1         PTH        0.00mm (0.00inch)
+T3      2.7mm (106mil)          +/-0.076mm (3mil)                 Round             12        PTH        144.00mm (5.67inch)
+T4      4.5mm (177mil)          +/-0.076mm (3mil)                 Round             2         PTH        7.20mm (0.28inch)
+T5      3.2mm (126mil)                                            Round             9         NPTH       163.63mm (6.44inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              32
+
+Total Processing Time (hh:mm:ss) : 00:00:00

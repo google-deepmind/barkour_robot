@@ -1,0 +1,51 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    # XT60 Receptacle
+    Rus:
+        <<: *XT60R
+        pinlabels: [GND, PWR]
+
+    # Custom battery receptacle
+    Battery:
+        type: Custom Contacts
+        subtype: Battery Holder for DeWalt FlexVolt
+        pinlabels: [GND, PWR]
+        image:
+            src: ../WireViz_Source/custombatt.jpg
+            caption: Soldered contacts for custom DeWalt battery holder
+            height: 200
+        notes: |
+            Carefully solder and then clean all flux residue with solvent
+            Tinning contacts is optional
+            When soldering, consider the direction the wires need to go when installed
+
+cables:
+
+    W_Rus_Black:
+        <<: *1x10AWG_BK
+        length: 0.12
+        notes: |
+            Exact manufacturer/part number non-essential providing
+            1. AT LEAST 5.0mm^2 of copper area
+            2. At MOST 1.0mm insulation thickness
+            Add label "Rus PWR In"
+    W_Rus_Red:
+        <<: *1x10AWG_RD
+        length: 0.09
+        notes: |
+            Exact manufacturer/part number non-essential providing
+            1. AT LEAST 5.0mm^2 of copper area
+            2. At MOST 1.0mm insulation thickness
+            Add label "Rus PWR In"
+
+connections:
+    -
+        - Battery: [1]
+        - W_Rus_Black: [1]
+        - Rus: [1]
+    -
+        - Battery: [2]
+        - W_Rus_Red: [1]
+        - Rus: [2]

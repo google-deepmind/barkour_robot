@@ -1,0 +1,44 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Hip Cover Connection:
+        <<: *XT60P
+
+    Hip Power:
+        <<: *XT30R
+
+    Knee Power:
+        <<: *XT30R
+
+cables:
+    Hip Cable:
+        <<: *2x16AWG
+        length: 0.12
+
+    Knee Cable:
+        <<: *2x16AWG
+        length: 0.32
+        notes: |
+            Add label "Hip Power"
+
+connections:
+  -
+    - Hip Cover Connection: [1]
+    - Hip Cable: [1]
+    - Hip Power: [1]
+
+  -
+    - Hip Cover Connection: [2]
+    - Hip Cable: [2]
+    - Hip Power: [2]
+
+  -
+    - Hip Cover Connection: [1]
+    - Knee Cable: [1]
+    - Knee Power: [1]
+
+  -
+    - Hip Cover Connection: [2]
+    - Knee Cable: [2]
+    - Knee Power: [2]

@@ -1,0 +1,29 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Rus Load Out:
+        # XT60 Receptacle
+        <<: *XT60R
+        pinlabels: [GND, PWR]
+
+    Fei-Fei Bat In:
+        # XT60 Plug
+        <<: *XT60P
+        pinlabels: [GND, PWR]
+
+cables:
+    W_PWR:
+        <<: *2x10AWG
+        length: 0.19
+        notes: |
+            Exact manufacturer/part number non-essential providing
+            1. AT LEAST 5.0mm^2 of copper area
+            2. At MOST 1.0mm insulation thickness
+            Add label "Rus to FF"
+
+connections:
+    -
+        - Rus Load Out: [1,2]
+        - W_PWR: [1,2]
+        - Fei-Fei Bat In: [1,2]

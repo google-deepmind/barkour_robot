@@ -1,0 +1,469 @@
+<!--
+Copyright 2024 DeepMind Technologies Limited
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<?xml version="1.0" ?>
+<EtherCATInfo>
+  <Vendor>
+    <Id>#x600613</Id>
+  </Vendor>
+  <Descriptions>
+    <Devices>
+      <Device>
+        <Type ProductCode="#x00001000" RevisionNo="#x00000000">APv1</Type>
+        <Name><![CDATA[Barkour]]></Name>
+        <Sm Enable="1" StartAddress="#x1000" ControlByte="#x26" DefaultSize="128" />
+        <Sm Enable="1" StartAddress="#x1080" ControlByte="#x22" DefaultSize="128" />
+        <Sm Enable="1" StartAddress="#x1100" ControlByte="#x24" DefaultSize="0" />
+        <Sm Enable="1" StartAddress="#x1400" ControlByte="#x20" DefaultSize="0" />
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1600</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x6040</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Control word</Name>
+            <DataType>UNSIGNED16</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1601</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x60ff</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>32</BitLen>
+            <Name>Velocity setpoint</Name>
+            <DataType>UNSIGNED32</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1602</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x6071</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Torque setpoint</Name>
+            <DataType>INTEGER16</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1610</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x6060</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>8</BitLen>
+            <Name>Modes of operation</Name>
+            <DataType>UNSIGNED8</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1611</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x6072</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Torque limit</Name>
+            <DataType>UNSIGNED16</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1612</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x60e0</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Max torque</Name>
+            <DataType>UNSIGNED16</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1613</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x60e1</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Min torque</Name>
+            <DataType>UNSIGNED16</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1614</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x6080</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>32</BitLen>
+            <Name>Speed limit</Name>
+            <DataType>UNSIGNED32</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2" Fixed="1">
+          <Index>#x1615</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x6082</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Torque offset</Name>
+            <DataType>INTEGER16</DataType>
+          </Entry>
+        </RxPdo>
+        <RxPdo Sm="2">
+          <Index>#x1620</Index>
+          <Name>RxPDO</Name>
+          <Entry>
+            <Index>#x2010</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Rx M7 blob</Name>
+            <DataType>ARRAY[0..199] OF UNSIGNED8</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2030</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>80</BitLen>
+            <Name>Tx uint8</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED8</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2031</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>160</BitLen>
+            <Name>Tx uint16</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED16</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2032</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx uint32</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED32</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>80</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2033</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx uint64</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED64</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2034</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>80</BitLen>
+            <Name>Tx int8</Name>
+            <DataType>ARRAY[0..9] OF INTEGER8</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2035</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>160</BitLen>
+            <Name>Tx int16</Name>
+            <DataType>ARRAY[0..9] OF INTEGER16</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2036</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx int32</Name>
+            <DataType>ARRAY[0..9] OF INTEGER32</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>80</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2037</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx int64</Name>
+            <DataType>ARRAY[0..9] OF INTEGER64</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2038</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx real32</Name>
+            <DataType>ARRAY[0..9] OF REAL32</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>80</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2039</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx float64</Name>
+            <DataType>ARRAY[0..9] OF REAL64</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+        </RxPdo>
+        <TxPdo Sm="3" Fixed="1">
+          <Index>#x1a00</Index>
+          <Name>TxPDO</Name>
+          <Entry>
+            <Index>#x6041</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Status word</Name>
+            <DataType>UNSIGNED16</DataType>
+          </Entry>
+        </TxPdo>
+        <TxPdo Sm="3" Fixed="1">
+          <Index>#x1a01</Index>
+          <Name>TxPDO</Name>
+          <Entry>
+            <Index>#x6064</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>32</BitLen>
+            <Name>Position</Name>
+            <DataType>UNSIGNED32</DataType>
+          </Entry>
+        </TxPdo>
+        <TxPdo Sm="3" Fixed="1">
+          <Index>#x1a02</Index>
+          <Name>TxPDO</Name>
+          <Entry>
+            <Index>#x606c</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>32</BitLen>
+            <Name>Velocity</Name>
+            <DataType>INTEGER32</DataType>
+          </Entry>
+        </TxPdo>
+        <TxPdo Sm="3" Fixed="1">
+          <Index>#x1a03</Index>
+          <Name>TxPDO</Name>
+          <Entry>
+            <Index>#x6077</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>Torque</Name>
+            <DataType>INTEGER16</DataType>
+          </Entry>
+        </TxPdo>
+        <TxPdo Sm="3" Fixed="1">
+          <Index>#x1a10</Index>
+          <Name>TxPDO</Name>
+          <Entry>
+            <Index>#x6041</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>8</BitLen>
+            <Name>Status word</Name>
+            <DataType>UNSIGNED8</DataType>
+          </Entry>
+        </TxPdo>
+        <TxPdo Sm="3">
+          <Index>#x1a20</Index>
+          <Name>TxPDO</Name>
+          <Entry>
+            <Index>#x2011</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx M7 blob</Name>
+            <DataType>ARRAY[0..199] OF UNSIGNED8</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2040</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>80</BitLen>
+            <Name>Tx uint8</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED8</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2041</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>160</BitLen>
+            <Name>Tx uint16</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED16</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2042</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx uint32</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED32</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>80</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2043</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx uint64</Name>
+            <DataType>ARRAY[0..9] OF UNSIGNED64</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2044</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>80</BitLen>
+            <Name>Tx int8</Name>
+            <DataType>ARRAY[0..9] OF INTEGER8</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2045</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>160</BitLen>
+            <Name>Tx int16</Name>
+            <DataType>ARRAY[0..9] OF INTEGER16</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x2046</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx int32</Name>
+            <DataType>ARRAY[0..9] OF INTEGER32</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>80</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2047</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx int64</Name>
+            <DataType>ARRAY[0..9] OF INTEGER64</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2048</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx real32</Name>
+            <DataType>ARRAY[0..9] OF REAL32</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>80</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x2049</Index>
+            <SubIndex>0</SubIndex>
+            <BitLen>240</BitLen>
+            <Name>Tx float64</Name>
+            <DataType>ARRAY[0..9] OF REAL64</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>240</BitLen>
+          </Entry>
+          <Entry>
+            <Index>#x0000</Index>
+            <BitLen>160</BitLen>
+          </Entry>
+        </TxPdo>
+      </Device>
+    </Devices>
+  </Descriptions>
+</EtherCATInfo>

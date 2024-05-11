@@ -1,0 +1,56 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    x1:
+        # USB Type-C
+        <<: *USBC
+        notes: |
+            1. CC (A5) connected to VBUS through a 56KOhm pull up resistor.
+    x2:
+        # USB Type-A Male Down Angled
+        <<: *USBAAngled
+
+cables:
+    USB Full Feature Cable:
+      # USB 3.1 Type-C Full Feature Cable
+        <<: *USBCable
+        length: 0.45
+
+connections:
+    -
+        - x1: [A1,A12,B1,B12]  # GND
+        - USB Full Feature Cable: [1,1,1,1]
+        - x2: [4,4,7,7]
+    -
+        - x1: [A4,A9,B4,B9]  # VBUS
+        - USB Full Feature Cable: [2,2,2,2]
+        - x2: [1,1,1,1]
+    -
+        - x1: [A5]  # CC1
+        - USB Full Feature Cable: [3]
+        - x2: [1]
+    -
+        - x1: [A6]
+        - USB Full Feature Cable: [4]
+        - x2: [3]
+    -
+        - x1: [A7]
+        - USB Full Feature Cable: [5]
+        - x2: [2]
+    -
+        - x1: [A3]
+        - USB Full Feature Cable: [6]
+        - x2: [5]
+    -
+        - x1: [A2]
+        - USB Full Feature Cable: [7]
+        - x2: [6]
+    -
+        - x1: [B10]
+        - USB Full Feature Cable: [8]
+        - x2: [8]
+    -
+        - x1: [B11]
+        - USB Full Feature Cable: [9]
+        - x2: [9]

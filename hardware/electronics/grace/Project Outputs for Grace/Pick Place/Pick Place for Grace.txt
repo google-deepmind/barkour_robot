@@ -1,0 +1,66 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Barkour Robot\WirelessSTO\Transmitter\Project Outputs for Grace\Pick Place\Pick Place for Grace.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       07/05/24
+Time:       15:57
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment             Layer       Footprint                     Center-X(mil) Center-Y(mil) Rotation Description
+J11        62001011821         TopLayer    62001011821                   2952.756      440.945       0        ""
+J10        62001011821         TopLayer    62001011821                   2952.756      1307.087      180      ""
+R17        1k                  TopLayer    RES_0603_1608_RF              1964.567      570.866       180      Resistor
+R16        120R                TopLayer    RES_1206_3216_RF              1673.228      531.496       90       Resistor
+R15        200R                TopLayer    RES_1206_3216_RF              2452.756      712.598       90       Resistor
+Q1         2N7002,215          TopLayer    NEXPERIA_SOT-23-3             1795.276      531.496       270      "MOSFET N-CH 60V 300MA SOT-23"
+D5         HLMP-3507           TopLayer    LED_TH_5mm                    1550.000      200.000       270      "Green 5mm TH LED, T-1 3/4, 10mA Ic, 2.1V"
+C19        47pF                TopLayer    CAP_0603_1608_RF              3330.709      1425.197      270      Capacitor
+C18        100nF               TopLayer    CAP_0603_1608_RF              3267.716      1425.197      270      Capacitor
+C16        10uF                TopLayer    CAP_1206_3216                 2350.394      734.252       90       "Generic Capacitor"
+C15        10uF                TopLayer    CAP_1206_3216                 2047.244      1133.858      270      "Generic Capacitor"
+R14        5.1k                TopLayer    RES_0603_1608_RF              1140.000      1306.378      90       Resistor
+R13        5.1k                TopLayer    RES_0603_1608_RF              1354.331      1318.898      0        Resistor
+J7         5015                BottomLayer FP-5015-MFG-RF                2968.504      748.032       270      "PC TEST POINT MINIATURE"
+J6         5015                BottomLayer FP-5015-MFG-RF                2653.543      748.032       270      "PC TEST POINT MINIATURE"
+J5         5015                BottomLayer FP-5015-MFG-RF                3125.984      748.032       270      "PC TEST POINT MINIATURE"
+J4         5015                BottomLayer FP-5015-MFG-RF                2811.024      748.032       270      "PC TEST POINT MINIATURE"
+J3         5015                BottomLayer FP-5015-MFG-RF                3283.465      748.032       270      "PC TEST POINT MINIATURE"
+U1         TLV1117CDCY         TopLayer    TI_SOT-223_DCY                2118.110      881.890       180      "LV1117 type LDO Regulator Pos 1.25V to 13.7V 0.8A 4-Pin(3+Tab) SOT-223 Tube"
+C10        220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        900.000       280.315       180      "Polarised Capacitor"
+C9         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        900.000       580.315       180      "Polarised Capacitor"
+C8         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        900.000       880.315       180      "Polarised Capacitor"
+C7         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        900.000       1180.315      180      "Polarised Capacitor"
+C6         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        901.575       1480.315      180      "Polarised Capacitor"
+C5         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        550.000       730.315       0        "Polarised Capacitor"
+C4         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        550.000       1030.315      0        "Polarised Capacitor"
+C3         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        200.000       580.315       180      "Polarised Capacitor"
+C2         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        201.575       880.315       180      "Polarised Capacitor"
+C1         220uF               TopLayer    CAP_ALSMD_6.6MM_H7.7MM        201.575       1180.315      180      "Polarised Capacitor"
+D4         1N4148WS-7-F        TopLayer    SOD323                        1901.575      1047.244      90       "Signal Diode VR=75V IF=150mA Trr=4ns P=200mW"
+D3         HLMP-3301           TopLayer    LED_TH_5mm                    1275.000      200.000       270      "Red 5mm TH LED, T-1 3/4, 10mA Ic, 1.9V"
+D2         HLMP-3507           TopLayer    LED_TH_5mm                    1550.000      825.000       270      "Green 5mm TH LED, T-1 3/4, 10mA Ic, 2.1V"
+D1         HLMP-3507           TopLayer    LED_TH_5mm                    1275.000      825.000       270      "Green 5mm TH LED, T-1 3/4, 10mA Ic, 2.1V"
+R10        120R                TopLayer    RES_1206_3216_RF              2452.756      881.890       90       Resistor
+R3         330R                TopLayer    RES_0603_1608_RF              1826.772      374.016       90       Resistor
+J2         105313-1206         TopLayer    MOLEX_1053131106              2000.000      1417.244      0        "Nano-Fit Right Angle Header; Through Hole; 2.50mm; Single Row; 6 Circuit; Gold Plated"
+U2         LTC6993CS6-1#TRMPBF TopLayer    LT_TSOT-23-6_S6               2017.716      374.016       0        "TimerBlox: Monostable Pulse Generator (One Shot), 2.25 to 5.5 V, 0 to 70 degC, 6-Pin TSOT-23 (S6), RoHS, Tape and Reel"
+U4         TLC555CDR           TopLayer    TI_SOIC-8_D0008A              2303.150      393.701       0        "2.1-MHz, 250-µA, Low-Power Timer 8-SOIC 0 to 70"
+R12        732k                TopLayer    RES_0603_1608_RF              1899.606      78.740        180      Resistor
+R7         180k                TopLayer    RES_0603_1608_RF              1899.606      196.851       180      Resistor
+R2         240R                TopLayer    RES_0603_1608_RF              1795.276      799.212       270      Resistor
+R11        1M                  TopLayer    RES_0603_1608_RF              2057.086      78.740        180      Resistor
+R9         680k                TopLayer    RES_0603_1608_RF              2529.527      78.740        180      Resistor
+R8         1k                  TopLayer    RES_0603_1608_RF              2372.047      78.740        0        Resistor
+R5         10k                 TopLayer    RES_0603_1608_RF              2992.126      1177.165      270      Resistor
+R6         10k                 TopLayer    RES_0603_1608_RF              2214.567      78.740        180      Resistor
+R1         560R                TopLayer    RES_0603_1608_RF              1795.276      685.039       270      Resistor
+R4         10k                 TopLayer    RES_0603_1608_RF              3173.228      1169.291      0        Resistor
+J1         1054500101          TopLayer    Molex_1054500101_-_With_Model 1360.236      1512.795      180      "Conn USB 3.1 Type C F 24 POS Solder RA SMD 24 Terminal 1 Port USB 3.1 T/R"
+C14        100nF               TopLayer    CAP_0603_1608_RF              2303.150      531.496       0        Capacitor
+C12        1uF                 TopLayer    CAP_0603_1608_RF              2529.528      196.850       0        Capacitor
+C13        100nF               TopLayer    CAP_0603_1608_RF              2372.047      196.851       0        Capacitor
+C11        100nF               TopLayer    CAP_0603_1608_RF              2057.086      196.851       180      Capacitor

@@ -1,0 +1,10 @@
+26_External_Ethernet
+
+Connector 1:
+M12
+
+Connector 2:
+RJ45
+
+Off the shelf part used as the harness:
+Mfr.#: 1408749. RJ45 to M12 Female

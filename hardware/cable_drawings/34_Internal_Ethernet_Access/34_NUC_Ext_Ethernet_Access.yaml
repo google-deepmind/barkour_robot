@@ -1,0 +1,30 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    NUC:
+        # RJ45 Plug
+        <<: *RJ45
+        pinlabels: [TX_D1+, TX_D1-, RX_D2+, BI_D3+, DI_B3-, RX_D2-, BI_D4+, BI_D4-]
+        notes: |
+            1. Crimp onto outter insulator for strain relief.
+            2. Install strain relief boot onto connector.
+
+    DFB Panel:
+        # Pre-made M12 Connector; X-Coded, Plug, 8-pin Male
+        <<: *M12AdaptorDFB
+
+cables:
+    Gigabit Ethernet CAT6A:
+      # Default Wires from COTS RJ45 to M12. Mfr.#: 1440591
+        <<: *1440591
+        length: 0.205 # length in meters
+        notes: |
+            1. Cut to consistent length for all wires.
+            2. Add label: "NUC EXT ETH".
+
+connections:
+  -
+    - NUC: [1,2,3,4,5,6,7,8]
+    - Gigabit Ethernet CAT6A: [1,2,3,4,5,6,7,8]
+    - DFB Panel: [1,2,3,4,5,6,7,8]

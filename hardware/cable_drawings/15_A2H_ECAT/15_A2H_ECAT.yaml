@@ -1,0 +1,34 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Abduction Cortes:
+        # Molex Nanofit Receptacle Housing, 2x5, EtherCAT + STO
+        <<: *1053081210
+        notes: |
+            1. Verify that only solid colors connect to top row.
+            2. Cut sides off connector using snips (see NF_RCPT_2x5_SIDES_CUT_OFF.jpg).
+
+    Hip Cortes:
+        # Molex Nanofit Receptacle Housing, 2x5, EtherCAT + STO
+        <<: *1053081210
+        notes: |
+            1. Verify that only solid colors connect to top row.
+            2. Cut sides off connector using snips (see NF_RCPT_2x5_SIDES_CUT_OFF.jpg).
+
+cables:
+    W1:
+        # AlphaWire 76030
+        <<: *76030
+        length: 0.47 # length in m
+        notes: |
+            1. Trim outer jacket at 20mm, keep exposed pairs twisted.
+            2. Cut to consistent length for all wires.
+            3. Add label "A2H ECAT".
+
+connections:
+    -
+        - Abduction Cortes: [1,2,3,4,6,7,8,9]
+        - W1: [6,2,4,8,3,1,5,7]
+        - Hip Cortes: [1,2,3,4,6,7,8,9]
+

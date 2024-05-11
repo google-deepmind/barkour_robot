@@ -1,0 +1,49 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    X1:
+        # 1.25mm wire to board 8 way
+        type: 10114826-00008LF
+        pinlabels: [5V, GND, T+, T-, CLK, CS, MISO, MOSI]
+        image:
+            src: ../WireViz_Source/10114826-00008LF.png
+            caption: 1.25mm Wire to Board Housing, 8 Positions
+            height: 100
+        notes: |
+            1. Premade connector with flying leads available from RSI under P/N ACC049.
+            2. To create from scratch use this connector P/N and crimps
+        additional_components:
+            -
+                type: Crimp
+                subtype: MiniTek 1.25 female, gold, 28-32 AWG
+                manufacturer: Amphenol ICC
+                mpn: 10114827-004-LF
+                qty_multiplier: populated
+
+    X2:
+        # Soldered connection
+        type: Gebru V5 - J2, soldered connection
+        pinlabels: [5V, GND, T+, T-, CLK, CS, MISO, MOSI]
+        notes: |
+            Strip wires 2mm from ends.
+
+cables:
+    W1:
+        # 8 wire preassembly
+        wirecount: 8
+        colors: [BN, WH, PK, GY, RD, BU, GN, YE]
+        gauge: 30 AWG # also accepts AWG as unit
+        shield: false
+        length: 50 mm
+        manufacturer: RSI
+        mpn: ACC049
+        notes: |
+            1. Comes with 10114826-00008LF connector attached.
+            2. Add label "AP Encoder".
+
+connections:
+    -
+        - X1: [1,2,3,4,5,6,7,8]
+        - W1: [1,2,3,4,5,6,7,8]
+        - X2: [1,2,3,4,5,6,7,8]

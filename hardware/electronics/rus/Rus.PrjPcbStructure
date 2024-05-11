@@ -1,0 +1,3 @@
+Record=TopLevelDocument|FileName=Inrus.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Inrus.SchDoc|Designator=U_InrushLimiter|SchDesignator=U_InrushLimiter|FileName=InrushLimiter.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=InrushLimiter.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID=
+Record=SheetSymbol|SourceDocument=Inrus.SchDoc|Designator=U_Rus|SchDesignator=U_Rus|FileName=Rus.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=Rus.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID=

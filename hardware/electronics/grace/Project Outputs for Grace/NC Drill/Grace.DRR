@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Grace.PcbDoc   5/7/2024  3:57:34 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Grace-RoundHoles.TXT
+ASCII SlotHoles File : Grace-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.5mm (20mil)                                             Round             34        PTH        335.77mm (13.22inch)
+T2      0.8mm (31mil)                                             Round             20        PTH        90.00mm (3.54inch)
+T3      1mm (39mil)                                               Round             8         PTH        40.01mm (1.58inch)
+T4      1.2mm (47mil)                                             Round             6         PTH        12.50mm (0.49inch)
+T5      1.7mm (67mil)                                             Round             2         PTH        12.50mm (0.49inch)
+T6      3.1mm (122mil)                                            Round             4         PTH        122.61mm (4.83inch)
+T7      0.6mm (24mil)           +0.1mm (4mil)                     Slot              4         NPTH       51.45mm (2.03inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              78
+
+Total Processing Time (hh:mm:ss) : 00:00:00

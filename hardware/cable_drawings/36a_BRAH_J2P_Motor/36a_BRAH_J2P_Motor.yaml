@@ -1,0 +1,27 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Jackson PCBA:
+        # 3-pin JST exiting the Jackson PCBA
+        <<: *455-1001-ND
+
+    Neck-Pitch Actuator:
+        # 3-pin JST plugging into DYNAMIXEL
+        <<: *455-1001-ND
+
+cables:
+    J2P Cable:
+      # Distance between Jackson PCBA panel mount and neck servo (shortest travel)
+        <<: *30-01863
+        length: 0.1
+        notes: |
+            1. Cut to consistent length for all wires.
+            2. Apply additional epoxy onto whatever crimp material is protruding from the housing to provide extra stability and prevent shorts.
+            3. Add label: "BRAH_J2P_Motor".
+
+connections:
+  -
+    - Jackson PCBA: [1,2,3]
+    - J2P Cable: [1,2,3]
+    - Neck-Pitch Actuator: [1,2,3]

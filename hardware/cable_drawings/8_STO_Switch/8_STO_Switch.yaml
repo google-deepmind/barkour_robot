@@ -1,0 +1,33 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Rus STO Port:
+        # Molex Nanofit Receptacle Housing, 2x3, Black
+        <<: *1053081206
+        pinlabels: [VDD_24, STO1, LED1_P, LED1_N, RTN2, GND]
+        additional_components:
+            -
+                <<: *1053002300
+                qty_multiplier: populated
+
+    STO Switch:
+        # STO Switch
+        <<: *STOswitch
+
+cables:
+
+    # AlphaWire 5006C 6 wire flex cable
+    W1:
+        <<: *5006C
+        length: 35 mm
+        notes: |
+            1. Add label "Rus STO1 to Switch".
+            2. Remove outer jacket entirely.
+            3. Length measurement is from rear face of connector to switch lugs
+
+connections:
+    -
+        - Rus STO Port: [1,2,3,4,5,6]
+        - W1: [1,2,3,4,5,6]
+        - STO Switch: [1,2,7,8,4,5]

@@ -1,0 +1,36 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    PWR_IN:
+        <<: *XT60P
+
+    PWR_OUT_1:
+        <<: *XT30R
+
+    PWR_OUT_2:
+        <<: *XT60R
+
+cables:
+
+    SPLIT_1:
+        <<: *2x16AWG
+        length: 0.10
+
+    SPLIT_2:
+        <<: *2x14AWG
+        length: 0.35
+        notes: |
+            Add label "FF to Front"
+
+connections:
+
+  -
+    - PWR_IN: [1,2]
+    - SPLIT_1: [1,2]
+    - PWR_OUT_1: [1,2]
+
+  -
+    - PWR_IN: [1,2]
+    - SPLIT_2: [1,2]
+    - PWR_OUT_2: [1,2]

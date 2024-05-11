@@ -1,0 +1,28 @@
+Component Name : SC18IM704
+
+Part Count : 2
+
+Part : *
+     Pins - (Normal) : 0
+          Hidden Pins :
+
+Part : *
+     Pins - (Normal) : 16
+          SDA            1              Passive
+          SCL            2              Passive
+          GPIO6          3              Passive
+          ~RESET         4              Passive
+          GPIO7          5              Passive
+          GPIO3          6              Passive
+          GPIO2          7              Passive
+          GPIO4          8              Passive
+          GPIO0          9              Passive
+          RX             10             Passive
+          TX             11             Passive
+          VDD            12             Passive
+          VSS            13             Passive
+          GPIO5          14             Passive
+          VREFP          15             Passive
+          GPIO1          16             Passive
+          Hidden Pins :
+

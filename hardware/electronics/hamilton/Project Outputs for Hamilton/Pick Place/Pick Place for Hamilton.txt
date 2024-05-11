@@ -1,0 +1,27 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Barkour Robot\Hamilton\Project Outputs for Hamilton\Pick Place\Pick Place for Hamilton.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       07/05/24
+Time:       15:19
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment            Layer    Footprint             Center-X(mil) Center-Y(mil) Rotation Description
+J1         53261-0471         TopLayer MOLEX-53261-0471_V    175.000       470.000       270      "Male Header, Pitch 1.25 mm, 1 x 4 Position, Height 3.4 mm, -40 to 85 degC, RoHS, Tape and Reel"
+R6         ERJ-2RKF27R0X      TopLayer FP-ERJ2R-IPC_B        986.000       458.000       180      "RES SMD 27 OHM 1% 1/10W 0402"
+R5         ERJ-2RKF27R0X      TopLayer FP-ERJ2R-IPC_B        986.000       512.000       180      "RES SMD 27 OHM 1% 1/10W 0402"
+R4         ERJ-2RKF1003X      TopLayer FP-ERJ2RK-IPC_C       666.000       292.000       270      "RES SMD 100K OHM 1% 1/10W 0402"
+R3         ERJ-2RKF1003X      TopLayer FP-ERJ2RK-IPC_C       638.000       486.000       90       "RES SMD 100K OHM 1% 1/10W 0402"
+C3         GRM155R70J105KA12D TopLayer FP-GRM155-0_05-MFG    910.000       536.000       270      "Chip Multilayer Ceramic Capacitors for General Purpose, 0402, 1.0uF, X7R, 15%, 10%, 6.3V"
+C2         GRM155R70J105KA12D TopLayer FP-GRM155-0_05-MFG    818.000       612.472       180      "Chip Multilayer Ceramic Capacitors for General Purpose, 0402, 1.0uF, X7R, 15%, 10%, 6.3V"
+C1         GRM155R70J105KA12D TopLayer FP-GRM155-0_05-MFG    666.000       360.000       270      "Chip Multilayer Ceramic Capacitors for General Purpose, 0402, 1.0uF, X7R, 15%, 10%, 6.3V"
+D2         APHHS1005CGCK      TopLayer FP-APHHS1005CGCK-MFG  120.000       150.000       180      "LED GREEN CLEAR CHIP SMD"
+D1         APHHS1005CGCK      TopLayer FP-APHHS1005CGCK-MFG  120.000       800.000       180      "LED GREEN CLEAR CHIP SMD"
+R2         ERJ-2GEJ102X       TopLayer RESC1005X40X25NL05T05 120.000       200.000       0        ""
+R1         ERJ-2GEJ102X       TopLayer RESC1005X40X25NL05T05 120.000       750.000       0        ""
+P2         20021321-00010C1LF TopLayer PCBComponent_1        460.000       470.000       270      "Header, 5-Pin, Dual row"
+U1         FT230XQ-R          TopLayer FP-QFN-16-MFG         788.000       482.473       90       "IC USB SERIAL BASIC UART 16QFN"

@@ -1,0 +1,110 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Barkour Robot\WirelessSTO\Receiver\Project Outputs for Hopper\Pick Place\Pick Place for Hopper.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       07/05/24
+Time:       15:53
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment       Layer       Footprint                     Center-X(mil) Center-Y(mil) Rotation Description
+J21        62001011821   TopLayer    62001011821                   1712.598      78.740        0        ""
+J20        62001011821   TopLayer    62001011821                   1712.598      944.882       180      ""
+C7         100nF         TopLayer    CAP_0603_1608_RF              1523.622      464.567       270      Capacitor
+R32        100k          TopLayer    RES_0402_1005_RF              1929.134      1314.960      270      "Generic Resistor"
+R31        100k          TopLayer    RES_0402_1005_RF              1728.347      1314.960      270      "Generic Resistor"
+R30        100k          TopLayer    RES_0402_1005_RF              1527.559      1314.960      270      "Generic Resistor"
+R29        100k          TopLayer    RES_0402_1005_RF              1326.772      1314.960      270      "Generic Resistor"
+R28        100k          TopLayer    RES_0402_1005_RF              1125.984      1312.992      270      "Generic Resistor"
+R27        10k           TopLayer    RES_0402_1005_RF              1374.016      763.779       90       "Generic Resistor"
+R26        3k3           TopLayer    RES_0402_1005_RF              669.291       846.457       270      "Generic Resistor"
+R25        13k           TopLayer    RES_0402_1005_RF              570.866       846.457       270      "Generic Resistor"
+R24        10k           TopLayer    RES_0402_1005_RF              718.504       846.457       90       "Generic Resistor"
+Q6         2N7002,215    TopLayer    NEXPERIA_SOT-23-3             1830.709      1295.276      90       "MOSFET N-CH 60V 300MA SOT-23"
+Q5         2N7002,215    TopLayer    NEXPERIA_SOT-23-3             1629.921      1295.276      90       "MOSFET N-CH 60V 300MA SOT-23"
+Q4         2N7002,215    TopLayer    NEXPERIA_SOT-23-3             1228.346      1295.276      90       "MOSFET N-CH 60V 300MA SOT-23"
+Q3         2N7002,215    TopLayer    NEXPERIA_SOT-23-3             1027.559      1295.276      90       "MOSFET N-CH 60V 300MA SOT-23"
+Q2         2N7002,215    TopLayer    NEXPERIA_SOT-23-3             1429.134      1295.276      90       "MOSFET N-CH 60V 300MA SOT-23"
+L1         SRR1050A-180Y TopLayer    INDUCTOR_SMD_SHIELDED_10x10mm 728.346       1250.000      180      "Inductor Power Shielded Wirewound 18uH 30% 100KHz Ferrite 3.1A 0.051Ohm DCR Automotive T/R"
+D12        SS3P5-M3/84A  TopLayer    DO-220AA                      406.476       1092.520      0        "VISHAY   SS3P5-M3/84A   DIODE, RECTIFIER, SCHOTTKY, 3A, 50V, SMP"
+C19        10uF          TopLayer    CAP_0402_1005                 1771.653      586.614       0        "Generic Capacitor"
+C18        3.9nF         TopLayer    CAP_0402_1005_RF              620.079       846.457       270      "Generic Capacitor"
+C17        10nF          TopLayer    CAP_0402_1005_RF              216.535       708.662       90       "Generic Capacitor"
+C16        10pF          TopLayer    CAP_0402_1005_RF              521.654       846.457       90       "Generic Capacitor"
+C15        100nF         TopLayer    CAP_0402_1005_RF              147.638       964.567       270      "Generic Capacitor"
+C14        10uF          TopLayer    CAP_1206_3216                 68.898        1023.622      270      "Generic Capacitor"
+C13        10uF          TopLayer    CAP_0402_1005_RF              423.228       1417.323      0        "Generic Capacitor"
+C12        10uF          TopLayer    CAP_0402_1005_RF              423.228       1368.110      0        "Generic Capacitor"
+C11        100nF         TopLayer    CAP_0402_1005_RF              423.228       1318.898      0        "Generic Capacitor"
+C10        100nF         TopLayer    CAP_0402_1005_RF              492.126       1003.937      0        "Generic Capacitor"
+U3         CD4001BPWR    TopLayer    TI_TSSOP-14_PW                1574.819      295.274       0        "4-ch, 2-input, 3-V to 18-V NOR gates 14-TSSOP -55 to 125"
+R22        270R          TopLayer    RES_0402_1005_RF              1803.150      1385.827      0        "Generic Resistor"
+R23        270R          TopLayer    RES_0402_1005_RF              1122.047      318.897       270      "Generic Resistor"
+R21        270R          TopLayer    RES_0402_1005_RF              1602.362      1385.827      0        "Generic Resistor"
+J9         5015          BottomLayer FP-5015-MFG-RF                1870.079      1295.276      270      "PC TEST POINT MINIATURE"
+J7         5015          BottomLayer FP-5015-MFG-RF                1811.024      240.157       90       "PC TEST POINT MINIATURE"
+J13        5015          BottomLayer FP-5015-MFG-RF                905.512       334.646       270      "PC TEST POINT MINIATURE"
+D10        150040RS73240 TopLayer    LED_0402_1005_RED             1099.409      1385.827      0        "Red SMD LED, 0402, 20mA Ic, 2V"
+C9         10uF          TopLayer    CAP_0402_1005                 1771.654      639.764       0        "Generic Capacitor"
+C5         10uF          TopLayer    CAP_0603_1608_RF              1535.433      681.102       90       Capacitor
+C3         47pF          TopLayer    CAP_0603_1608_RF              2076.772      1043.307      180      Capacitor
+R17        100k          TopLayer    RES_0402_1005_RF              901.575       389.764       0        "Generic Resistor"
+Q1         2N7002,215    TopLayer    NEXPERIA_SOT-23-3             1027.559      370.079       0        "MOSFET N-CH 60V 300MA SOT-23"
+RV5        EZA-EG2A50AX  TopLayer    RES_0402_1005                 688.976       374.016       180      "EZAEG Series 100 Vcl 0.05 pF 0402 Surface Mount ESD Suppressor"
+RV4        EZA-EG2A50AX  TopLayer    RES_0402_1005                 688.976       476.378       180      "EZAEG Series 100 Vcl 0.05 pF 0402 Surface Mount ESD Suppressor"
+RV3        EZA-EG2A50AX  TopLayer    RES_0402_1005                 688.976       578.740       180      "EZAEG Series 100 Vcl 0.05 pF 0402 Surface Mount ESD Suppressor"
+RV2        EZA-EG2A50AX  TopLayer    RES_0402_1005                 688.976       425.197       180      "EZAEG Series 100 Vcl 0.05 pF 0402 Surface Mount ESD Suppressor"
+RV1        EZA-EG2A50AX  TopLayer    RES_0402_1005                 688.976       527.559       180      "EZAEG Series 100 Vcl 0.05 pF 0402 Surface Mount ESD Suppressor"
+D8         150040RS73240 TopLayer    LED_0402_1005_RED             1700.787      1385.827      180      "Red SMD LED, 0402, 20mA Ic, 2V"
+D11        150040RS73240 TopLayer    LED_0402_1005_RED             1039.370      271.654       0        "Red SMD LED, 0402, 20mA Ic, 2V"
+D7         150040RS73240 TopLayer    LED_0402_1005_RED             1500.000      1385.827      180      "Red SMD LED, 0402, 20mA Ic, 2V"
+D6         150040RS73240 TopLayer    LED_0402_1005_RED             1299.213      1385.827      180      "Red SMD LED, 0402, 20mA Ic, 2V"
+R20        270R          TopLayer    RES_0402_1005_RF              1401.575      1385.827      0        "Generic Resistor"
+R14        680k          TopLayer    RES_0603_1608_RF              1771.653      698.819       180      Resistor
+R19        270R          TopLayer    RES_0402_1005_RF              1200.787      1385.827      0        "Generic Resistor"
+R18        270R          TopLayer    RES_0402_1005_RF              1000.000      1385.827      180      "Generic Resistor"
+J15        5015          BottomLayer FP-5015-MFG-RF                1031.496      700.787       0        "PC TEST POINT MINIATURE"
+J14        5015          BottomLayer FP-5015-MFG-RF                1066.929      1295.276      270      "PC TEST POINT MINIATURE"
+J10        5015          BottomLayer FP-5015-MFG-RF                1003.937      334.646       90       "PC TEST POINT MINIATURE"
+J11        5015          BottomLayer FP-5015-MFG-RF                807.087       334.646       270      "PC TEST POINT MINIATURE"
+J12        5015          BottomLayer FP-5015-MFG-RF                1031.496      592.520       0        "PC TEST POINT MINIATURE"
+J5         5015          BottomLayer FP-5015-MFG-RF                1692.913      629.921       90       "PC TEST POINT MINIATURE"
+J8         5015          BottomLayer FP-5015-MFG-RF                1669.291      1295.276      270      "PC TEST POINT MINIATURE"
+J6         5015          BottomLayer FP-5015-MFG-RF                1469.488      1297.244      270      "PC TEST POINT MINIATURE"
+J2         5015          BottomLayer FP-5015-MFG-RF                708.661       334.646       270      "PC TEST POINT MINIATURE"
+J4         5015          BottomLayer FP-5015-MFG-RF                1267.716      1295.276      270      "PC TEST POINT MINIATURE"
+J3         5015          BottomLayer FP-5015-MFG-RF                1673.228      1074.803      0        "PC TEST POINT MINIATURE"
+U1         TPS54331GDR   TopLayer    TI_SOIC-8_D0008A              324.803       866.142       0        "3.5V to 28V Input, 3A, 570kHz Step-Down Converter with Eco-mode 8-SOIC -40 to 150"
+U4         CD74HC123PW   TopLayer    TI_TSSOP-16_PW                1938.976      629.921       90       "High Speed CMOS Logic Dual etriggerable Monostable Multivibrators with eset 16-TSSOP -55 to 125"
+J1         105314-1206   TopLayer    MOLEX_1053141206              387.402       472.441       270      "Nano-Fit Right Angle Header; Through Hole; 2.50mm; Dual Row; 6 Circuit; Gold Plated"
+U5         LM393PT       TopLayer    ST_TSSOP-8                    1417.323      570.866       270      "Comparator Dual 18V/36V 8-Pin TSSOP T/R"
+R10        10k           TopLayer    RES_0402_1005_RF              2086.614      728.346       90       "Generic Resistor"
+R7         39k           TopLayer    RES_0603_1608_RF              2047.244      413.386       0        Resistor
+R6         10k           TopLayer    RES_0402_1005_RF              2086.614      614.173       270      "Generic Resistor"
+R11        10k           TopLayer    RES_0402_1005_RF              1555.118      757.874       180      "Generic Resistor"
+R9         10k           TopLayer    RES_0402_1005_RF              1535.433      602.362       0        "Generic Resistor"
+R8         10k           TopLayer    RES_0402_1005_RF              1555.118      816.929       0        "Generic Resistor"
+R13        10k           TopLayer    RES_0402_1005_RF              1771.653      535.433       180      "Generic Resistor"
+R12        10k           TopLayer    RES_0402_1005_RF              1771.653      484.252       180      "Generic Resistor"
+R1         10k           TopLayer    RES_0402_1005_RF              2007.874      816.929       0        "Generic Resistor"
+R16        2.7k          TopLayer    RES_1206_3216_RF              1062.992      78.740        180      Resistor
+R15        2.7k          TopLayer    RES_1206_3216_RF              1062.992      177.165       180      Resistor
+R5         180R          TopLayer    RES_0402_1005_RF              413.386       255.905       0        "Generic Resistor"
+R4         2.7k          TopLayer    RES_1206_3216_RF              383.858       177.165       0        Resistor
+R3         10k           TopLayer    RES_0402_1005_RF              1590.551      1031.496      180      "Generic Resistor"
+R2         10k           TopLayer    RES_0402_1005_RF              1889.764      816.929       180      "Generic Resistor"
+K1         1462037-1     TopLayer    TE_IM_Relay_Gullwing          1019.685      610.236       180      "Signal Relay 3VDC 2A DPDT (( 10mm 7.5mm 5.65mm)) Surface Mount Automotive"
+D9         150040RS73240 TopLayer    LED_0402_1005_RED             1901.575      1385.827      180      "Red SMD LED, 0402, 20mA Ic, 2V"
+D3         1N4148        TopLayer    SOD323                        1177.165      405.512       180      "Signal Diode VR=75V IF=150mA Trr=4ns P=200mW"
+C4         1uF           TopLayer    CAP_0603_1608_RF              2086.614      501.969       90       Capacitor
+C2         100nF         TopLayer    CAP_0402_1005_RF              2076.772      1102.362      180      "Generic Capacitor"
+C8         100nF         TopLayer    CAP_0603_1608_RF              1771.654      757.874       0        Capacitor
+C6         100nF         TopLayer    CAP_0603_1608_RF              1781.496      374.016       180      Capacitor
+C1         100uF         TopLayer    CAP_ALSMD_ELEC_5.3MM_H5.8MM   1803.150      1118.110      180      "Generic Polarised Capacitor"
+D1         150040VS73240 TopLayer    LED_0402_1005_GREEN           492.126       78.740        90       "Green SMD LED, 0402, 20mA Ic, 2V"
+D5         150040VS73240 TopLayer    LED_0402_1005_GREEN           708.662       78.740        90       "Green SMD LED, 0402, 20mA Ic, 2V"
+D2         150040VS73240 TopLayer    LED_0402_1005_GREEN           551.181       78.740        90       "Green SMD LED, 0402, 20mA Ic, 2V"
+D4         150040VS73240 TopLayer    LED_0402_1005_GREEN           649.606       78.740        90       "Green SMD LED, 0402, 20mA Ic, 2V"

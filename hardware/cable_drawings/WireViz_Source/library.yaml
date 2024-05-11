@@ -1,0 +1,626 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+# Crimps
+
+C: &1053001300
+    type: Crimp
+    subtype: Nano-Fit female, gold, 24-26 AWG
+    manufacturer: Molex
+    mpn: 1053001300
+
+C: &1053002300
+    type: Crimp
+    subtype: Nano-Fit female, gold, 20-22 AWG
+    manufacturer: Molex
+    mpn: 1053002300
+
+C: &2014471300
+    type: Crimp
+    subtype: Nano-Fit male, gold, 24-26 AWG
+    qty_multiplier: populated
+    manufacturer: Molex
+    mpn: 2014471300
+
+C: &430300003
+    type: Crimp
+    subtype: Micro-Fit female, gold, 20-24 AWG
+    qty_multiplier: populated
+    manufacturer: Molex
+    mpn: 430300003
+
+C: &SPH-002T-P0_5S
+    type: Crimp
+    subtype: PH female, 24-30 AWG
+    qty_multiplier: populated
+    manufacturer: JST
+    mpn: SPH-002T-P0.5S
+
+C: &DF11-2428SCF
+    type: Crimp
+    subtype: DF11 female, tin, 24-28 AWG
+    qty_multiplier: populated
+    manufacturer: Hirose
+    mpn: DF11-2428SCF
+
+C: &SEH-001T-P06
+    type: Crimp
+    subtype: Socket, tin, 22-30 AWG
+    qty_multiplier: populated
+    manufacturer: JST Sales America Inc.
+    mpn: SEH-001T-P0.6
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+# Heat Shrink
+
+HS: &FL2500-NO_3-J1-0-STK
+    type: Heat-shrink
+    subtype: Adhesive lined, 4:1, 11.56mm
+    manufacturer: TE
+    mpn: FL2500-NO.3-J1-0-STK
+
+HS: &FL2500-NO_0-I7-0-STK
+    type: Heat-shrink
+    subtype: Adhesive lined, 4:1, 5.08mm
+    manufacturer: TE
+    mpn: FL2500-NO.0-I7-0-STK
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+# Connectors
+
+# Molex Nano-Fit Receptacle Housing, 2x5, EtherCAT + STO
+X1: &1053081210
+    type: Molex 1053081210
+    subtype: receptacle
+    pinlabels: [ECATPHY_R_N, ECATPHY_T_N, STO_RTN_1, STO_RTN_2, GND, ECATPHY_R_P, ECATPHY_T_P, STO_1, STO_2, NC]
+    image:
+      src: ../WireViz_Source/1053081210.png
+      caption: Nano-Fit Receptacle, 2.50mm Pitch, Dual Row, 10 Circuits
+      height: 200
+    additional_components:
+        -
+            <<: *1053001300
+            qty_multiplier: populated
+
+# Molex Nano-Fit Plug Housing, 2x5, EtherCAT + STO
+X2: &2014441110
+    type: Molex 2014441110
+    subtype: plug
+    pinlabels: [ECATPHY_R_N, ECATPHY_T_N, STO_RTN_1, STO_RTN_2, GND, ECATPHY_R_P, ECATPHY_T_P, STO_1, STO_2, NC]
+    image:
+        src: ../WireViz_Source/2014441110.png
+        caption: Nano-Fit Plug, 2.50mm Pitch, Dual Row, 10 Circuits
+        height: 200
+    additional_components:
+        -
+            <<: *2014471300
+            qty_multiplier: populated
+
+# Molex Nano-Fit Receptacle Housing, 2x4, EtherCAT + STO
+X1: &1053081208
+    type: Molex 1053081208
+    subtype: receptacle
+    pinlabels: [ECATPHY_R_N, ECATPHY_T_N, STO_RTN_1, STO_RTN_2, ECATPHY_R_P, ECATPHY_T_P, STO_1, STO_2]
+    image:
+      src: ../WireViz_Source/1053081208.png
+      caption: Nano-Fit Receptacle, 2.50mm Pitch, Dual Row, 8 Circuits
+      height: 200
+    additional_components:
+        -
+            <<: *1053001300
+            qty_multiplier: populated
+
+# Molex Nano-Fit Plug Housing, 2x4, EtherCAT + STO
+X2: &2014441108
+    type: Molex 2014441108
+    subtype: plug
+    pinlabels: [ECATPHY_R_N, ECATPHY_T_N, STO_RTN_1, STO_RTN_2, ECATPHY_R_P, ECATPHY_T_P, STO_1, STO_2]
+    image:
+        src: ../WireViz_Source/2014441108.png
+        caption: Nano-Fit Plug, 2.50mm Pitch, Dual Row, 8 Circuits
+        height: 200
+    additional_components:
+        -
+            <<: *2014471300
+            qty_multiplier: populated
+
+# Molex Nano-Fit Receptacle Housing, 2x3, Black
+X: &1053081206
+    type: Molex 1053081206
+    subtype: receptacle
+    image:
+      src: ../WireViz_Source/1053081206.png
+      caption: Nano-Fit Receptacle, 2.50mm Pitch, Dual Row, 6 Circuits
+      height: 200
+
+# Molex Nano-Fit Receptacle Housing, 2x2, Natural
+X: &1053082204
+    type: Molex 1053082204
+    subtype: receptacle
+    image:
+      src: ../WireViz_Source/1053082204.png
+      caption: Nano-Fit Receptacle, 2.50mm Pitch, Dual Row, 4 Circuits
+      height: 200
+
+# Molex Nano-Fit Receptacle Housing, 2x2, Black
+X: &1053081204
+    type: Molex 1053081204
+    subtype: receptacle
+    image:
+      src: ../WireViz_Source/1053081204.png
+      caption: Nano-Fit Receptacle, 2.50mm Pitch, Dual Row, 4 Circuits
+      height: 200
+
+# Molex Nano-Fit Receptacle Housing, 1x4, Black
+X: &1053071204
+    type: Molex 1053071204
+    subtype: receptacle
+    image:
+        src: ../WireViz_Source/1053071204.png
+        caption: Nano-Fit Receptacle Housing, 2.50mm Pitch, Single Row, 4 Circuits
+        height: 200
+
+# Molex Nano-Fit Receptacle Housing, 1x2, Natural
+X3: &1053072202
+    type: Molex 1053072202
+    subtype: receptacle
+    pinlabels: [NC, NC]
+    image:
+        src: ../WireViz_Source/1053072202.png
+        caption: Nano-Fit Receptacle Housing, 2.50mm Pitch, Single Row, 2 Circuits
+        height: 200
+
+# Molex Micro-Fit Receptacle Housing, Dual Row, 4 Circuits, Black
+X6: &430250400
+    type: Molex 430250400
+    subtype: receptacle
+    pinlabels: [NC, NC, NC, NC]
+    image:
+        src: ../WireViz_Source/430250400.png
+        caption: Micro-Fit Receptacle Housing, Dual Row, 4 Circuits, Black
+        height: 200
+    additional_components:
+        -
+            <<: *430300003
+            qty_multiplier: populated
+
+# RJ45 Plug
+X4: &RJ45
+    type: Jonard RJ45-550
+    subtype: plug
+    pinlabels: [TX+, TX-, RX+, NC, NC, RX-, NC, NC]
+    image:
+        src: ../WireViz_Source/8p8c_rj45.png
+        caption: RJ45 plug
+        height: 200
+
+# COTS premade Gigabit Ethernet M12 Adaptor for DFB. Mfr.#: 1440591
+X4: &M12AdaptorDFB
+    type: NBC-M12MSX
+    subtype: plug
+    pinlabels: [TX_D1+, TX_D1-, RX_D2+, BI_D3+, BI_D3-, RX_D2-, BI_D4+, BI_D4-]
+    notes:
+        Off the shelf part. M12 Male connector, PN 1440591
+    image:
+        src: ../WireViz_Source/1440591.png
+        caption: M12 X-coded Male Pin Plug
+        height: 200
+
+# XT30 Receptacle
+X5: &XT30R
+    type: Amass XT30-F
+    subtype: receptacle
+    pinlabels: [GND, PWR]
+    image:
+        src: ../WireViz_Source/XT30_F.jpg
+        caption: XT30-F connector. Flat side is PWR, rounded side is GND.
+        height: 200
+    additional_components:
+        -
+            <<: *FL2500-NO_0-I7-0-STK
+    notes: |
+        Apply glue lined heatshrink to reduce stress on solder joints.
+        If glue lined heatshrink not available, apply epoxy after heatshrink to add rigidity.
+        Must use genuine Amass branded part. Preferably from authorised distributor such as TME.
+
+# XT30 Plug
+X5: &XT30P
+    type: Amass XT30-M
+    subtype: plug
+    pinlabels: [GND, PWR]
+    image:
+        src: ../WireViz_Source/XT30_M.png
+        caption: XT30-M connector. Flat side is PWR, rounded side is GND.
+        height: 200
+    additional_components:
+        -
+            <<: *FL2500-NO_0-I7-0-STK
+    notes: |
+        Apply glue lined heatshrink to reduce stress on solder joints.
+        If glue lined heatshrink not available, apply epoxy after heatshrink to add rigidity.
+        Must use genuine Amass branded part. Preferably from authorised distributor such as TME.
+
+# XT60 Receptacle
+X: &XT60R
+    type: Amass XT60H-F
+    subtype: receptacle
+    pinlabels: [GND, PWR]
+    image:
+        src: ../WireViz_Source/XT60H_F.png
+        caption: XT60H-F connector. Flat side is PWR, rounded side is GND.
+        height: 200
+    notes: |
+        Must use genuine Amass branded part. Preferably from authorised distributor such as TME.
+
+# XT60 Plug
+X6: &XT60P
+    type: Amass XT60H-M
+    subtype: plug
+    pinlabels: [GND, PWR]
+    image:
+        src: ../WireViz_Source/XT60H_M.png
+        caption: XT60H-M connector. Flat side is PWR, rounded side is GND.
+        height: 200
+    notes: |
+        Must use genuine Amass branded part. Preferably from authorised distributor such as TME.
+
+# XT90I Plug
+X6: &XT90IP
+    type: Amass XT90I-M
+    subtype: plug
+    pinlabels: [GND, PWR, SIG1, SIG2]
+    image:
+        src: ../WireViz_Source/XT90I_M.png
+        caption: XT90I-M connector. Flat side is PWR, rounded side is GND.
+        height: 200
+    additional_components:
+        -
+            <<: *FL2500-NO_3-J1-0-STK
+    notes: |
+        Apply glue lined heatshrink to reduce stress on solder joints.
+        If glue lined heatshrink not available, apply epoxy after heatshrink to add rigidity.
+        Must use genuine Amass branded part. Preferably from authorised distributor such as TME.
+
+# XT90I Receptacle
+X6: &XT90IR
+    type: Amass XT90I-F
+    subtype: plug
+    pinlabels: [GND, PWR, SIG1, SIG2]
+    image:
+        src: ../WireViz_Source/XT90I_F.png
+        caption: XT90I-F connector. Flat side is PWR, rounded side is GND.
+        height: 200
+    additional_components:
+        -
+            <<: *FL2500-NO_3-J1-0-STK
+    notes: |
+        Apply glue lined heatshrink to reduce stress on solder joints.
+        If glue lined heatshrink not available, apply epoxy after heatshrink to add rigidity.
+        Must use genuine Amass branded part. Preferably from authorised distributor such as TME.
+
+# STO Switch
+X: &STOswitch
+    type: AV1921E524Q04
+    subtype: lug
+    pinlabels: [COM1, NO1, NC1, COM2, NO2, NC2, LED+, LED-]
+    notes:
+        Apply 10mm of standard black heatshrink to insulate solder joints (no glue).
+    image:
+        src: ../WireViz_Source/AV1921E624Q04.png
+        caption: STO Switch, 24V Yellow Ring LED, DPDT with latch.
+        height: 200
+
+# Power Switch
+X: &PWRswitch
+    type: AV1910P724Q04
+    subtype: lug
+    pinlabels: [COM, N_O, N_C, LED+, LED-] # Python interprets "NO" as a boolean so I use N_O and N_C here
+    notes:
+        Apply 10mm of standard black heatshrink to insulate solder joints (no glue).
+    image:
+        src: ../WireViz_Source/AV1910P724Q04.png
+        caption: NUC Power Switch, 24V Blue Power LED, SPDT momentary.
+        height: 200
+
+# Fan
+X: &Fan
+    type: 9HV0848P1G001
+    subtype: Pigtail
+    pinlabels: [POS, NEG, SENSE, CTRL]
+    notes:
+        Fan comes with 300mm flying leads.
+    image:
+        src: ../WireViz_Source/9HV0848P1G001.png
+        caption: Sanyo Denki, 48 V dc, DC Axial Fan, 80 x 80 x 38mm
+        height: 200
+
+# Molex COTS premade PicoBlade harness that plugs into the NUC
+X2: &NUCPicoBladeUSB
+    type: PicoBlade 4 way
+    subtype: receptacle
+    pinlabels: [5V, D-, D+, GND]
+    notes:
+        Off the shelf part from Molex, PN 0151340405
+    image:
+        src: ../WireViz_Source/0151340405.png
+        caption: Premade Molex PicoBlade cable, 4 way
+        height: 200
+
+## JST 3-Pin Female Socket Receptable for Actuated Head Motor Chain
+X: &455-1001-ND
+    type: Rectangular Connector
+    subtype: Receptacle
+    pinlabels: [GND, VDD, DATA]
+    image:
+        src: ../WireViz_Source/EHR-3.png
+        caption: 3-Pin Rectangular Connectors - Housings Receptacle
+        height: 200
+    additional_components:
+        -
+            <<: *SEH-001T-P06
+            qty_multiplier: populated
+
+## USB3.1 type-c right angle connector
+X: &USBCRightAngle
+    type: USB3.1 Type-C Connector
+    subtype: Plug
+    pinlabels: [GND, TX1+, TX1-, VBUS, CC1, D+, D-, SBU1, VBUS, RX2-, RX2+, GND, GND, TX2+, TX2-, VBUS, CC2, D+, D-, SBU2, VBUS, RX1-, RX1+, GND]
+    pins: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12]
+    image:
+        src: ../WireViz_Source/3027008.png
+        caption: USB3.1 Type-C Male Right Angled
+        height: 200
+
+## USB3.1 type-c down angled connector with locking
+X: &USBCDownAngleLocking
+    type: USB3.1 Type-C Connector
+    subtype: Plug
+    pinlabels: [GND, TX1+, TX1-, VBUS, CC1, D+, D-, SBU1, VBUS, RX2-, RX2+, GND, GND, TX2+, TX2-, VBUS, CC2, D+ , D-, SBU2, VBUS, RX1-, RX1+, GND]
+    pins: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12]
+    image:
+        src: ../WireViz_Source/397225.png
+        caption: USB3.1 Type-C Male Down Angled w/ Locking
+        height: 200
+
+## USB3.1 type-c down angled connector
+X: &USBCDownAngle
+    type: USB Type-C Connector
+    subtype: Plug
+    pinlabels: [GND, TX1+, TX1-, VBUS, CC1, D+, D-, SBU1, VBUS, RX2-, RX2+, GND, GND, TX2+, TX2-, VBUS, CC2, D+ , D-, SBU2, VBUS, RX1-, RX1+, GND]
+    pins: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12]
+    image:
+        src: ../WireViz_Source/377831.png
+        caption: USB Type-C Male Down Angled
+        height: 200
+
+## USB3.1 type-c
+X: &USBC
+    type: USB Type-C Connector
+    subtype: Plug
+    pinlabels: [GND, TX1+, TX1-, VBUS, CC1, D+, D-, SBU1, VBUS, RX2-, RX2+, GND, GND, TX2+, TX2-, VBUS, CC2, D+ , D-, SBU2, VBUS, RX1-, RX1+, GND]
+    pins: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12]
+    image:
+        src: ../WireViz_Source/28477.png
+        caption: USB Type-C Male
+        height: 200
+
+## USB type-c panel mount
+X: &USBCPanelMount
+    type: USB Type-C Panel Mount
+    subtype: Receptical
+    pinlabels: [GND, TX1+, TX1-, VBUS, CC1, D+, D-, SBU1, VBUS, RX2-, RX2+, GND, GND, TX2+, TX2-, VBUS, CC2, D+, D-, SBU2, VBUS, RX1-, RX1+, GND]
+    pins: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12]
+    image:
+        src: ../WireViz_Source/56899.png
+        caption: USB Type-C Panel Mount
+        height: 200
+
+## USB type-A angled
+X: &USBAAngled
+    type: USB Type-A Angled
+    subtype: Plug
+    pinlabels: [VBUS, D-, D+, GND, SSRX-, SSRX+, GND, SSTX-, SSTX+]
+    image:
+        src: ../WireViz_Source/55432.png
+        caption: USB Type-A Angled
+        height: 200
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+# Ring Terminals / Splices
+
+# M4 12-10AWG ring terminal, Dura-Seal
+RT: &B-106-1403
+    style: simple
+    autogenerate: false
+    show_name: true
+    type: Ring Terminal
+    subtype: Dura-Seal 10-12AWG M4
+    color: YE
+    manufacturer: TE
+    mpn: B-106-1403
+    notes:
+        Apply heat after crimping to seal connector
+
+# M5 12-10AWG ring terminal, Dura-Seal
+RT: &DR-4-50
+    style: simple
+    autogenerate: false
+    show_name: true
+    type: Ring Terminal
+    subtype: Dura-Seal 10-12AWG M5
+    color: YE
+    manufacturer: TE
+    mpn: B-106-1503
+    notes:
+        Apply heat after crimping to seal connector
+
+# M5 12-10AWG uninsulated ring terminal, Solistrand
+RT: &33457
+    style: simple
+    autogenerate: false
+    show_name: true
+    type: Ring Terminal
+    subtype: Solistrand 10-12AWG M5
+    color: GY
+    manufacturer: TE
+    mpn: 33457
+    notes:
+        Apply heatshrink after crimping to seal connector
+
+# M5 22-18AWG ring terminal, Dura-Seal
+RT: &DR-2-50
+    style: simple
+    autogenerate: false
+    show_name: true
+    type: Ring Terminal
+    subtype: Dura-Seal 18-22AWG M5
+    color: RD
+    manufacturer: TE
+    mpn: B-106-1501
+    notes:
+        Apply heat after crimping to seal connector
+
+# 12-10AWG butt splice crimp, Solistrand
+RT: &P_Splice_1210
+    style: simple
+    autogenerate: false
+    show_name: true
+    type: Butt Splice
+    subtype: Solistrand 12-10AWG
+    color: GY
+    manufacturer: TE
+    mpn: 330369
+    notes:
+        Apply heatshrink after crimping to seal splice
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+# Wires/Cables
+
+# AlphaWire 76030
+W: &76030
+    color_code: T568A # auto-color wires based on a standard
+    wirecount: 8 # need to specify number of wires explicitly when using a color code
+    gauge: 24 AWG # also accepts AWG as unit
+    shield: false
+    type: CAT5e Flex
+    manufacturer: AlphaWire
+    mpn: 76030
+
+# AlphaWire 5006C
+W: &5006C
+    colors: [BK, BN, RD, OG, YE, GN]
+    wirecount: 6 # need to specify number of wires explicitly when using a color code
+    gauge: 22 AWG # also accepts AWG as unit
+    shield: false
+    type: Flex
+    manufacturer: AlphaWire
+    mpn: 5006C
+
+# 10 AWG used for tri-motor power
+W: &2x10AWG
+    category: bundle
+    colors: [BK, RD]
+    gauge: 10 AWG
+    type: Silicone Flex Rated
+    show_equiv: true
+    notes: |
+        Exact manufacturer/part number non-essential providing
+        1. AT LEAST 5.0mm^2 of copper area
+        2. At MOST 1.0mm insulation thickness
+
+# 10 AWG used for battery power (Black)
+W: &1x10AWG_BK
+    category: single
+    colors: [BK]
+    gauge: 10 AWG
+    type: PVC (105/30) TC
+    mpn: 891000 BK005
+    show_equiv: true
+    notes: |
+
+# 10 AWG used for battery power (Red)
+W: &1x10AWG_RD
+    category: single
+    colors: [RD]
+    gauge: 10 AWG
+    type: PVC (105/30) TC
+    mpn: 891000 RD005
+    show_equiv: true
+    notes: |
+
+# 12 AWG used for tri-motor power (t-motor)
+W: &2x12AWG
+    category: bundle
+    colors: [BK, RD]
+    gauge: 12 AWG
+    type: PVC 65/30 Stranded Hook-Up Wire
+    manufacturer: AlphaWire
+    mpn: 891265 BK005 / 891265 RD005
+
+# 14 AWG used for bi-motor power
+W: &2x14AWG
+    category: bundle
+    colors: [BK, RD]
+    gauge: 14 AWG
+    type: PVC 41/30 Stranded Hook-Up Wire
+    show_equiv: true
+    manufacturer: AlphaWire
+    mpn: 891441 BK005 / 891441 RD005
+
+# 16 AWG used for individual motor power
+W: &2x16AWG
+    category: bundle
+    colors: [BK, RD]
+    gauge: 16 AWG
+    type: PVC 26/30 Stranded Hook-Up Wire
+    show_equiv: true
+    manufacturer: AlphaWire
+    mpn: 3057 BK005 / 3057 RD005
+
+# 20 AWG power pair
+W: &2x20AWG
+    category: bundle
+    colors: [BK, RD]
+    gauge: 20 AWG
+    show_equiv: true
+
+# Wires from COTS RJ45 to M12 Cable. Mfr.#: 1440591
+W: &1440591
+    category: bundle
+    color_code: T568A
+    wirecount: 8
+    gauge: 26 AWG
+    type: Ethernet CAT6A
+    show_equiv: true
+    shield: true
+    manufacturer: PN 1440591
+    mpn: 1440591
+
+# Wires from Molex COTS Picoblade 4 Circuit
+W1: &0151340405
+    category: bundle
+    wirecount: 4
+    colors: [BK]
+    manufacturer: Molex
+    mpn: 0151340405-ND
+
+# Cables for Building the Actuated Head Daisy Chain
+W: &30-01863
+    category: bundle
+    colors: [BK, RD, WH]
+    wirecount: 3
+    gauge: 22 AWG
+    type: Multi-Conductor Cable
+    show_equiv: true
+    shield: true
+    manufacturer: Tensility International Corp
+    mpn: 839-30-01863-1-ND
+
+W: &USBCable
+    category: single
+    colors: [BK, RD, BU, WH, VT, GN, OG, YE, BN, GD, TQ, LB, CU, SR, SN, IV]
+    wirecount: 16
+    gauge: 24 AWG
+    type: PVC USB 3.1
+    show_equiv: true
+    notes: |
+

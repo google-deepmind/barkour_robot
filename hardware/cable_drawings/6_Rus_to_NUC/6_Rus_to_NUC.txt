@@ -1,0 +1,10 @@
+6_Rus_to_NUC
+
+Connector 1:
+Molex Micro-Fit 2x2 receptacle
+
+Connector 2:
+Molex Micro-Fit 2x2 receptacle
+
+Off the shelf part used as the harness:
+Molex 214755-2041

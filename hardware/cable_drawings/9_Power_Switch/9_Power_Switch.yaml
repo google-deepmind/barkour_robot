@@ -1,0 +1,43 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    NUC Header:
+        # Molex Milli-Grid Premade Cable Assembly
+        type: Milli-Grid 2x5
+        subtype: receptacle
+        pinlabels: [HDDLED+, PWRLED+, HDDLED-, PWRLED-, RST+, PWR+, RST-, PWR-, +5VDC, KEY]
+        image:
+            src: ../WireViz_Source/2185101100.png
+            caption: 2mm pitch header pins, Molex Milli-Grid
+            height: 200
+        notes: |
+            1. Off the shelf part Molex 2185101100 to be used
+            2. Connect so that KEY is on connector corner
+            3. Mark pin 1 distinctively
+            4. Remove or cut off unused wires
+
+    Power Switch:
+        # Power Switch
+        <<: *PWRswitch
+
+cables:
+
+    # AlphaWire 5006C 6 wire flex cable
+    W1:
+        category: bundle
+        wirecount: 10
+        colors: [BK]
+        length: 50 mm
+        notes: |
+            Off the shelf part Molex 2185101100 to be used
+
+connections:
+    -
+        - NUC Header: [2,4,6,8]
+        - W1: [2,4,6,8]
+        - Power Switch: [4,5,1,2]
+
+    -
+        - NUC Header: [1,3,5,7,9,10]
+        - W1: [1,3,5,7,9,10]

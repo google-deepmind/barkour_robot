@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\Public\Documents\Altium\Barkour Robot\Rus\Rus.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=rus-roundholes.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=rus-slotholes.txt|DrillLayers=gtl,g1,g2,gbl

@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Hopper.PcbDoc   5/7/2024  3:53:58 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Hopper-RoundHoles.TXT
+ASCII SlotHoles File : Hopper-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.5mm (20mil)                                             Round             57        PTH        312.34mm (12.30inch)
+T2      0.711mm (28mil)                                           Round             1         PTH        0.00mm (0.00inch)
+T3      0.8mm (31mil)                                             Round             20        PTH        58.00mm (2.28inch)
+T4      1.2mm (47mil)                                             Round             6         PTH        12.50mm (0.49inch)
+T5      3.1mm (122mil)                                            Round             4         PTH        137.64mm (5.42inch)
+T6      1.6mm (63mil)                                             Round             1         NPTH       0.00mm (0.00inch)
+T7      1.6mm (63mil)                                             Slot              1         NPTH       0.15mm (0.01inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              90
+
+Total Processing Time (hh:mm:ss) : 00:00:00

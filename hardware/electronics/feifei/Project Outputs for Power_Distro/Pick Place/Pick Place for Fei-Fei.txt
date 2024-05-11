@@ -1,0 +1,25 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Barkour Robot\Fei-Fei\Project Outputs for Power_Distro\Pick Place\Pick Place for Fei-Fei.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       07/05/24
+Time:       16:04
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment     Layer    Footprint   Center-X(mil) Center-Y(mil) Rotation Description
+F4         0154007.DRT TopLayer FP-0154-MFG 541.000       608.000       90       "FUSE BRD MNT 7A 72VAC 60VDC 2SMD"
+F3         0154007.DRT TopLayer FP-0154-MFG 1428.000      1360.000      270      "FUSE BRD MNT 7A 72VAC 60VDC 2SMD"
+F2         0154007.DRT TopLayer FP-0154-MFG 1428.000      574.000       270      "FUSE BRD MNT 7A 72VAC 60VDC 2SMD"
+F1         0154007.DRT TopLayer FP-0154-MFG 541.000       1393.000      90       "FUSE BRD MNT 7A 72VAC 60VDC 2SMD"
+J7         XT30U-F     TopLayer XT30U-F     984.252       1003.937      180      ""
+J6         XT30U-F     TopLayer XT30U-F     984.252       1417.323      180      ""
+D1         SMBJ58CA    TopLayer DO-214AA    1004.000      565.000       0        "Diode TVS Single Bi-Dir 58V 600W 2-Pin SMB"
+J1         XT60PW-F    TopLayer XT60PW_F    196.850       1377.953      90       ""
+J5         XT60E-M     TopLayer XT60E-M     984.252       196.850       180      ""
+J4         XT60PW-F    TopLayer XT60PW_F    196.850       590.551       90       ""
+J3         XT60PW-F    TopLayer XT60PW_F    1771.653      1377.953      270      ""
+J2         XT60PW-F    TopLayer XT60PW_F    1771.653      590.551       270      ""

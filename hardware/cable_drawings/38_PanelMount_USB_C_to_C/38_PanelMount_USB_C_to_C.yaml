@@ -1,0 +1,51 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    x1:
+        # USB Type-C Panel Mount
+        <<: *USBCPanelMount
+
+    x2:
+        # USB Type-C Down Angled
+        <<: *USBCDownAngle
+
+cables:
+    USB Full Feature Cable:
+      # USB Type-C Full Feature Cable
+        <<: *USBCable
+        length: 0.25
+
+connections:
+    -
+        - x1: [A1,A12,B1,B12] # GND
+        - USB Full Feature Cable: [1,1,1,1]
+        - x2: [A1,A12,B1,B12]
+    -
+        - x1: [A4,A9,B4,B9]  # VBUS
+        - USB Full Feature Cable: [2,2,2,2]
+        - x2: [A4,A9,B4,B9]
+    -
+        - x1: [A6,B6]
+        - USB Full Feature Cable: [3,3]
+        - x2: [A6,A6]
+    -
+        - x1: [A7,B7]
+        - USB Full Feature Cable: [4,4]
+        - x2: [A7,A7]
+    -
+        - x1: [A2,A3,B10,B11]
+        - USB Full Feature Cable: [5,6,7,8]
+        - x2: [A2,A3,B10,B11]
+    -
+        - x1: [A5,B5]
+        - USB Full Feature Cable: [9,10]
+        - x2: [A5,B5]
+    -
+        - x1: [A8,B8]
+        - USB Full Feature Cable: [11,12]
+        - x2: [A8,B8]
+    -
+        - x1: [A10,A11,B2,B3]
+        - USB Full Feature Cable: [13,14,15,16]
+        - x2: [A10,A11,B2,B3]

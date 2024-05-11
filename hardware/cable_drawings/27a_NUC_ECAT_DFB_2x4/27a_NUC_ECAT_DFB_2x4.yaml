@@ -1,0 +1,54 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    NUC:
+        # RJ45 plug
+        <<: *RJ45
+        notes: |
+            1. Crimp onto outer insulator for strain relief.
+            2. Install strain relief boot onto connector.
+
+    DFB Extension:
+        # Molex Nano-Fit Plug Housing, 2x4, EtherCAT + STO
+        <<: *2014441108
+        notes: |
+            1. Verify that only solid colors connect to top row.
+            2. Trim outer jacket at 20mm, keep exposed pairs twisted.
+            3. Apply CLEAR heat-shrink to denote INTERCONNECT orientation.
+
+    RUS Extension:
+        # Molex Nano-Fit Receptacle Housing, Dual Row, 4 Circuits, Black
+        <<: *1053081204
+        pinlabels: [STO_RTN_1, STO_RTN_2, STO_1, STO_2]
+        additional_components:
+        -
+            <<: *1053001300
+            qty_multiplier: populated
+
+cables:
+    W1:
+        # AlphaWire 76030
+        <<: *76030
+        length: 0.06 # length in m
+        notes: |
+            1. Cut to consistent length for all wires.
+            2. Add label "NUC ECAT DFB".
+    W2:
+        # AlphaWire 76030
+        <<: *76030
+        length: 0.220 # length in m
+        notes: |
+            1. Trim outer jacket at 20mm, keep exposed pairs twisted.
+            2. Cut to consistent length for all wires.
+            3. Add label "RUS STO LOOP DFB".
+
+connections:
+    -
+        - DFB Extension: [6,2,5,1]
+        - W1: [1,2,3,6]
+        - NUC: [1,2,3,6]
+    -
+        - DFB Extension: [3,4,7,8]
+        - W2: [4,8,5,7]
+        - RUS Extension: [1,2,3,4]

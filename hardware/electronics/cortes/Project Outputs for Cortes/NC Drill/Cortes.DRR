@@ -1,0 +1,24 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Cortes.PcbDoc   5/9/2024  10:17:20 AM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Cortes.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.152mm (6mil)                                            Round             206       PTH        193.03mm (7.60inch)
+T2      0.203mm (8mil)                                            Round             27        PTH        78.61mm (3.09inch)
+T3      0.254mm (10mil)                                           Round             829       PTH        1764.52mm (69.47inch)
+T4      0.838mm (33mil)                                           Round             4         PTH        21.29mm (0.84inch)
+T5      1.016mm (40mil)                                           Round             2         PTH        56.86mm (2.24inch)
+T6      1.2mm (47mil)                                             Round             20        PTH        53.97mm (2.12inch)
+T7      3.3mm (130mil)                                            Round             3         PTH        141.43mm (5.57inch)
+T8      0.71mm (28mil)                                            Round             60        NPTH       186.80mm (7.35inch)
+T9      0.75mm (30mil)                                            Round             4         NPTH       100.75mm (3.97inch)
+T10     0.8mm (31mil)                                             Round             2         NPTH       3.05mm (0.12inch)
+T11     1.6mm (63mil)                                             Round             4         NPTH       23.97mm (0.94inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              1161
+
+Total Processing Time (hh:mm:ss) : 00:00:00

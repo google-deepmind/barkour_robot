@@ -1,0 +1,72 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Barkour Robot\Mataric\Project Outputs for Mataric\Pick Place\Pick Place for Mataric.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       07/05/24
+Time:       15:28
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment                  Layer       Footprint               Center-X(mil) Center-Y(mil) Rotation Description
+R106       ""                       TopLayer    R0603                   1377.953      -964.567      0        "Resistor, 300 Ohms, 0603, 0.1W, ±1%"
+R105       ""                       TopLayer    R0603                   1377.953      -403.543      180      "Resistor, 300 Ohms, 0603, 0.1W, ±1%"
+D102       APHHS1005CGCK            TopLayer    FP-APHHS1005CGCK-MFG    1377.953      -905.512      0        "LED GREEN CLEAR CHIP SMD"
+Jprog2     M55-7102042R             BottomLayer CON_M55-7102042R        1145.275      397.638       270      "CONN HEADER SMD R/A 20POS 1.27MM"
+Jprog1     ""                       TopLayer    SAMTEC_TFM-110-02-L-DH  1318.980      397.638       270      "CONN, HDR, SHRD, RA, 2x10, 1.27MM P, 6.02MM h, GOLD, TH"
+SW3        B3AL-1003P               TopLayer    FP-B3AL-1003P-MFG       -629.921      -511.811      0        "SWITCH TACTILE SPST-NO 0.05A 16V"
+SW5        B3AL-1003P               TopLayer    FP-B3AL-1003P-MFG       314.961       866.142       0        "SWITCH TACTILE SPST-NO 0.05A 16V"
+SW4        B3AL-1003P               TopLayer    FP-B3AL-1003P-MFG       -314.961      866.142       0        "SWITCH TACTILE SPST-NO 0.05A 16V"
+SW2        B3AL-1003P               TopLayer    FP-B3AL-1003P-MFG       0.000         -511.811      0        "SWITCH TACTILE SPST-NO 0.05A 16V"
+SW1        B3AL-1003P               TopLayer    FP-B3AL-1003P-MFG       629.921       -511.811      0        "SWITCH TACTILE SPST-NO 0.05A 16V"
+R21        ERJ-2RKF1003X            TopLayer    FP-ERJ2RK-IPC_C         -954.724      495.978       90       "RES SMD 100K OHM 1% 1/10W 0402"
+R20        ERJ-2RKF1003X            TopLayer    FP-ERJ2RK-IPC_C         -1218.504     -757.874      0        "RES SMD 100K OHM 1% 1/10W 0402"
+J10        70246-2004               TopLayer    FP-70246-2004-MFG       -1204.724     0.000         270      "CONN HEADER VERT 20POS 2.54MM"
+U101       FT230XQ-R                TopLayer    FP-QFN-16-MFG           1157.480      -295.276      0        "IC USB SERIAL BASIC UART 16QFN"
+R104       ERJ-2RKF1003X            TopLayer    FP-ERJ2RK-IPC_C         990.158       -283.465      180      "RES SMD 100K OHM 1% 1/10W 0402"
+R103       ERJ-2RKF1003X            TopLayer    FP-ERJ2RK-IPC_C         1160.000      -140.000      0        "RES SMD 100K OHM 1% 1/10W 0402"
+R102       ERJ-2RKF27R0X            TopLayer    FP-ERJ2R-IPC_B          1131.890      -507.874      90       "RES SMD 27 OHM 1% 1/10W 0402"
+R101       ERJ-2RKF27R0X            TopLayer    FP-ERJ2R-IPC_B          1183.071      -507.874      90       "RES SMD 27 OHM 1% 1/10W 0402"
+J101       ZX62R-B-5P(30)           TopLayer    HIRO-ZX62R-B-5P_V       1389.764      -677.165      90       "Connector; USBMicro-B,Reverse type, SMT; 5 Position; Right Angle"
+D101       APHHS1005CGCK            TopLayer    FP-APHHS1005CGCK-MFG    1377.953      -448.819      180      "LED GREEN CLEAR CHIP SMD"
+C103       GRM155R70J105KA12D       TopLayer    FP-GRM155-0_05-MFG      1287.402      -409.449      180      "Chip Multilayer Ceramic Capacitors for General Purpose, 0402, 1.0uF, X7R, 15%, 10%, 6.3V"
+C102       GRM155R70J105KA12D       TopLayer    FP-GRM155-0_05-MFG      1064.961      -159.449      180      "Chip Multilayer Ceramic Capacitors for General Purpose, 0402, 1.0uF, X7R, 15%, 10%, 6.3V"
+C101       GRM155R70J105KA12D       TopLayer    FP-GRM155-0_05-MFG      1299.213      -322.835      90       "Chip Multilayer Ceramic Capacitors for General Purpose, 0402, 1.0uF, X7R, 15%, 10%, 6.3V"
+TP0        KEYSTONE5015_NOSILK      TopLayer    KEYSTONE_5015_NS        0.000         -1098.425     0        "HW, TEST POINT, NO SILKSCREEN, PC MINIATURE, 0.25mm T, 1.52mm HEIGHT, SILVER PLATING, SMT"
+R9         ""                       TopLayer    R0603                   1000.000      800.000       180      "Resistor, 300 Ohms, 0603, 0.1W, ±1%"
+GND        TEST_VIA_NOSILK          TopLayer    TP_VIA_31pad_15drill_NS -1216.535     -913.386      90       "TEST VIA, NO SILKSCREEN, 15 MIL DRILL, 31 MIL PAD"
+FID6       FIDUCIAL                 BottomLayer FIDUCIAL_1MM            -1400.000     1400.000      90       "FIDUCIAL 1MM COPPER CIRCLE 3MM MASK PULLBACK"
+FID5       FIDUCIAL                 TopLayer    FIDUCIAL_1MM            -1400.000     1400.000      90       "FIDUCIAL 1MM COPPER CIRCLE 3MM MASK PULLBACK"
+FID4       FIDUCIAL                 TopLayer    FIDUCIAL_1MM            1400.000      1300.000      90       "FIDUCIAL 1MM COPPER CIRCLE 3MM MASK PULLBACK"
+FID3       FIDUCIAL                 BottomLayer FIDUCIAL_1MM            -1400.000     -1400.000     90       "FIDUCIAL 1MM COPPER CIRCLE 3MM MASK PULLBACK"
+FID2       FIDUCIAL                 TopLayer    FIDUCIAL_1MM            -1400.000     -1400.000     90       "FIDUCIAL 1MM COPPER CIRCLE 3MM MASK PULLBACK"
+FID1       FIDUCIAL                 BottomLayer FIDUCIAL_1MM            1400.000      1300.000      180      "FIDUCIAL 1MM COPPER CIRCLE 3MM MASK PULLBACK"
+LED3       __Template_LED_BLUE_AK   TopLayer    LED_APA2106CGCK         238.189       303.150       90       "LED, BLUE, 465NM, INDEPENDENT, CLEAR, RA, SMD-2"
+LED2       __Template_LED_YELLOW_AK TopLayer    LED_APA2106CGCK         -440.945      307.087       90       "LED, YELLOW, 590NM, CLEAR, RA, SMD-2"
+LED1       __Template_LED_RED_AK    TopLayer    LED_APA2106CGCK         793.307       301.181       90       "LED, RED, 640NM, INDEPENDENT, CLEAR, RA, SMD-2"
+TP3        KEYSTONE5015_NOSILK      TopLayer    KEYSTONE_5015_NS        0.000         0.000         0        "HW, TEST POINT, NO SILKSCREEN, PC MINIATURE, 0.25mm T, 1.52mm HEIGHT, SILVER PLATING, SMT"
+TP2        KEYSTONE5015_NOSILK      TopLayer    KEYSTONE_5015_NS        -600.000      0.000         0        "HW, TEST POINT, NO SILKSCREEN, PC MINIATURE, 0.25mm T, 1.52mm HEIGHT, SILVER PLATING, SMT"
+TP1        KEYSTONE5015_NOSILK      TopLayer    KEYSTONE_5015_NS        600.000       0.000         0        "HW, TEST POINT, NO SILKSCREEN, PC MINIATURE, 0.25mm T, 1.52mm HEIGHT, SILVER PLATING, SMT"
+R2         ""                       TopLayer    R0603                   511.811       600.394       90       "Resistor, 300 Ohms, 0603, 0.1W, ±1%"
+R5         ""                       TopLayer    R0805                   300.000       -60.000       270      "RES, 10K, 1%, 1/8W, 0805"
+R8         ""                       TopLayer    R0805                   -300.000      -100.000      270      "RES, 10K, 1%, 1/8W, 0805"
+R4         ""                       TopLayer    R0805                   800.000       -80.000       90       "Resistor, 22.0 Ohms, 0805, 0.125W, ±1%"
+R11        ""                       TopLayer    R0805                   -400.000      -100.000      90       "Resistor, 22.0 Ohms, 0805, 0.125W, ±1%"
+R6         ""                       TopLayer    R0603                   180.000       100.000       180      "Resistor, 300 Ohms, 0603, 0.1W, ±1%"
+R1         ""                       TopLayer    R0805                   900.000       -80.000       270      "RES, 10K, 1%, 1/8W, 0805"
+R3         ""                       TopLayer    R0603                   768.543       100.000       180      "Resistor, 300 Ohms, 0603, 0.1W, ±1%"
+R12        ""                       TopLayer    R0805                   900.000       1300.000      0        "RES, 10K, 1%, 1/8W, 0805"
+R7         ""                       TopLayer    R0805                   200.000       -60.000       90       "Resistor, 22.0 Ohms, 0805, 0.125W, ±1%"
+R10        ""                       TopLayer    R0603                   -413.386      100.394       180      "Resistor, 300 Ohms, 0603, 0.1W, ±1%"
+C8         __Template_Cap_Auto      TopLayer    C0402                   900.000       1200.000      180      "CAP, CER, X7R, 0.1uF, 50V, 10%, 0402, AUTO GRADE"
+C6         C1005X7R1H104K050BB      TopLayer    FP-C1005-050-0_05-IPC_C -100.000      -100.000      270      "Multilayer Ceramic Capacitors 100nF ±10% 50V X7R SMD 0402"
+C3         C1005X7R1H104K050BB      TopLayer    FP-C1005-050-0_05-IPC_C 350.000       525.000       180      "Multilayer Ceramic Capacitors 100nF ±10% 50V X7R SMD 0402"
+C7         C1005X7R1H104K050BB      TopLayer    FP-C1005-050-0_05-IPC_C -700.000      -100.000      270      "Multilayer Ceramic Capacitors 100nF ±10% 50V X7R SMD 0402"
+C4         C1005X7R1H104K050BB      TopLayer    FP-C1005-050-0_05-IPC_C 1000.000      982.284       90       "Multilayer Ceramic Capacitors 100nF ±10% 50V X7R SMD 0402"
+C5         C1005X7R1H104K050BB      TopLayer    FP-C1005-050-0_05-IPC_C 500.000       -100.000      270      "Multilayer Ceramic Capacitors 100nF ±10% 50V X7R SMD 0402"
+MH4        MH                       TopLayer    MH_1.6MM                1200.000      -1200.000     0        "MOUNTING HOLE, M1.6, 4.0mm PAD"
+MH3        MH                       TopLayer    MH_1.6MM                -1200.000     -1200.000     0        "MOUNTING HOLE, M1.6, 4.0mm PAD"
+MH2        MH                       TopLayer    MH_1.6MM                -1200.000     1200.000      0        "MOUNTING HOLE, M1.6, 4.0mm PAD"
+MH1        MH                       TopLayer    MH_1.6MM                1200.000      1200.000      0        "MOUNTING HOLE, M1.6, 4.0mm PAD"

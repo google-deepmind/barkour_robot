@@ -1,3 +1,6 @@
+Copyright 2024 DeepMind Technologies Limited
+
+Not an official Google product or service.
 
                                  Apache License
                            Version 2.0, January 2004
@@ -200,3 +203,30 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+
+The following materials have been referenced or used in the creation of this work:
+DRV8353 Drivers <https://www.ti.com/tool/download/SLVC736>,
+Copyright 2018 Texas Instruments, available under The 3-Clause BSD License.
+Simple Open Source EtherCAT Slave
+<​​https://github.com/OpenEtherCATsociety/SOES?tab=License-1-ov-file#readme>,
+Copyright (C) 2007-2017 Arthur Ketels, Copyright (C) 2012-2017 rt-labs,
+available under license available at
+https://github.com/OpenEtherCATsociety/SOES?tab=License-1-ov-file#readme.
+FreeRTOS kernel, <https://www.freertos.org/index.html>,
+Copyright (C) 2019 Amazon.com, Inc. or its affiliates,
+available under license available at https://www.freertos.org/a00114.html.
+STM32CubeH7 MCU Firmware Package
+<https://github.com/stmicroelectronics/stm32cubeh7>,
+Copyright (c) 2020, STMicroelectronics,
+available under license available at
+https://github.com/STMicroelectronics/STM32CubeH7/blob/master/LICENSE.md.
+STM32CubeH7 HAL Driver MCU Component
+<https://github.com/STMicroelectronics/stm32h7xx_hal_driver>,
+Copyright (c) 2017 STMicroelectronics, available under license available at
+https://github.com/STMicroelectronics/stm32h7xx_hal_driver/blob/master/LICENSE.md.
+Eigen - a C++ template library for linear algebra: matrices, vectors,
+numerical solvers, and related algorithms <https://gitlab.com/libeigen/eigen>,
+Copyright (c) 2011, Intel Corporation, available under Mozilla Public License 2.0.
+Mbed TLS <https://github.com/Mbed-TLS/mbedtls>,
+Copyright (c) The Mbed TLS Contributors, available under Apache License Version 2.0

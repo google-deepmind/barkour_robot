@@ -1,0 +1,34 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Hip Cover:
+        # Molex Nanofit Receptacle Housing, 2x4, EtherCAT + STO
+        <<: *1053081208
+        notes: |
+            1. Verify that only solid colors connect to top row.
+            2. Apply CLEAR heat-shrink to denote INTERCONNECT orientation.
+
+    Rus Extension:
+        # Molex Nanofit Receptacle Housing, 2x4, EtherCAT + STO
+        <<: *1053081208
+        notes: |
+            1. Verify that only solid colors connect to top row.
+            2. Apply CLEAR heat-shrink to denote INTERCONNECT orientation.
+
+cables:
+    W1:
+        # AlphaWire 76030
+        <<: *76030
+        length: 0.34 # length in m
+        notes: |
+            1. Trim outer jacket at 20mm, keep exposed pairs twisted.
+            2. Cut to consistent length for all wires.
+            3. Add label "Hip to Rus STO Torso".
+
+connections:
+    -
+        - Hip Cover: [1,2,3,4,5,6,7,8]
+        - W1: [6,2,4,8,3,1,5,7]
+        - Rus Extension: [1,2,3,4,5,6,7,8]
+

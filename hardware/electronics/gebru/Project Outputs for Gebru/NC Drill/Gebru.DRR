@@ -1,0 +1,24 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Gebru.PcbDoc   5/8/2024  2:07:05 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Gebru.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.254mm (10mil)                                           Round             690       PTH        1790.55mm (70.49inch)
+T2      0.381mm (15mil)                                           Round             70        PTH        119.78mm (4.72inch)
+T3      0.635mm (25mil)                                           Round             8         PTH        15.00mm (0.59inch)
+T4      0.762mm (30mil)                                           Round             1         PTH        0.00mm (0.00inch)
+T5      0.9mm (35mil)                                             Round             4         PTH        20.17mm (0.79inch)
+T6      1.016mm (40mil)                                           Round             2         PTH        71.49mm (2.81inch)
+T7      1.5mm (59mil)                                             Round             3         PTH        18.51mm (0.73inch)
+T8      1.93mm (76mil)                                            Round             2         PTH        9.14mm (0.36inch)
+T9      3.3mm (130mil)                                            Round             1         PTH        0.00mm (0.00inch)
+T10     5mm (197mil)                                              Round             1         PTH        0.00mm (0.00inch)
+T11     4.4mm (173mil)                                            Round             3         NPTH       141.43mm (5.57inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              785
+
+Total Processing Time (hh:mm:ss) : 00:00:00

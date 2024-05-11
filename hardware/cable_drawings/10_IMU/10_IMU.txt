@@ -1,0 +1,11 @@
+IMU
+
+Connector 1:
+Molex PicoBlade 4 way
+
+Connector 2:
+Molex PicoBlade 4 way
+
+Off the shelf part used as the harness:
+https://www.microsatacables.com/intel-nuc-internal-usb-cable-1-25-mm-1x4-pin-to-1-25-mm-1x4-pin-usb-2-0-intl-4p4p-6in
+

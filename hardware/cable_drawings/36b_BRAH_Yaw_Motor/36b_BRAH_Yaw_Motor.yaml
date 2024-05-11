@@ -1,0 +1,27 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Prev/Next Motor:
+        # 3-pin JST plugging into a DYNAMIXEL
+        <<: *455-1001-ND
+
+    Head Yaw Actuator:
+        # 3-pin JST that plugs into either of the head yaw actuator ports
+        <<: *455-1001-ND
+
+cables:
+    Yaw Motor Cable:
+      # Distance between either the neck-pitch to head-yaw or the following head-yaw to jaw; interchangable cables of the same length
+        <<: *30-01863
+        length: 0.225
+        notes: |
+            1. Cut to consistent length for all wires.
+            2. Apply additional epoxy onto whatever crimp material is protruding from the housing to provide extra stability and prevent shorts.
+            3. Add label: "BRAH_Yaw_Motor".
+
+connections:
+  -
+    - Prev/Next Motor: [1,2,3]
+    - Yaw Motor Cable: [1,2,3]
+    - Head Yaw Actuator: [1,2,3]

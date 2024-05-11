@@ -1,0 +1,28 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    X1:
+        # XT30 Plug
+        <<: *XT30P
+
+    X2:
+        # Soldered connection
+        type: Stripped Ends
+        pinlabels: [GND, PWR]
+        notes: |
+            Strip wires 3mm from end.
+
+cables:
+    W1:
+        # 16 AWG pair for PWR and GND
+        <<: *2x16AWG
+        length: 50 mm
+        notes: |
+            1. Finished cable should be less than 60mm long.
+
+connections:
+    -
+        - X1: [1,2]
+        - W1: [1,2]
+        - X2: [1,2]

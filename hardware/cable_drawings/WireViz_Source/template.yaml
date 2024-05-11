@@ -1,0 +1,16 @@
+connectors:
+  X1:
+# Paste connector one here
+
+X2:
+# Paste connector two here
+
+cables:
+  W1:
+# Paste wire definition here
+
+connections:
+  -
+    - X1: #[1,2,3,4,6,7,8,9]
+    - W1: #[6,2,4,8,3,1,5,7]
+    - X2: #[1,2,3,4,6,7,8,9]

@@ -1,0 +1,20 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Mataric.PcbDoc   5/7/2024  3:28:06 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : 1Top Layer to 4Bottom Layer
+ASCII RoundHoles File : Mataric.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.305mm (12mil)                                           Round             88        PTH        414.95mm (16.34inch)
+T2      0.381mm (15mil)                                           Round             1         PTH        0.00mm (0.00inch)
+T3      0.711mm (28mil)                                           Round             4         PTH        67.76mm (2.67inch)
+T4      0.838mm (33mil)                                           Round             4         PTH        21.13mm (0.83inch)
+T5      1.14mm (45mil)                                            Round             20        PTH        48.26mm (1.90inch)
+T6      3.15mm (124mil)                                           Round             4         PTH        208.13mm (8.19inch)
+T7      1.651mm (65mil)         +/-0.051mm (2mil)                 Round             2         NPTH       15.85mm (0.62inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              123
+
+Total Processing Time (hh:mm:ss) : 00:00:00

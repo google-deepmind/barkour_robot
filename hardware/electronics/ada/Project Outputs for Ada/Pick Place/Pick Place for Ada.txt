@@ -1,0 +1,36 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Barkour Robot\Ada\Project Outputs for Ada\Pick Place\Pick Place for Ada.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       07/05/24
+Time:       15:59
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment           Layer       Footprint               Center-X(mil) Center-Y(mil) Rotation Description
+R1         432K              TopLayer    RESC1005X40X25NL05T10   295.276       -265.748      270      ""
+C4         C0402C103M5RACTU  TopLayer    FP-C0402-BB-MFG         238.646       -266.518      90       "CAP CER 10000PF 50V 20% X7R 0402"
+R4         ERJ-2RKF2000X     TopLayer    FP-ERJ2RK-IPC_A         14.000        181.000       90       "RES SMD 200 OHM 1% 1/10W 0402"
+R3         ERJ-2RKF2000X     TopLayer    FP-ERJ2RK-IPC_A         13.000        255.000       90       "RES SMD 200 OHM 1% 1/10W 0402"
+R2         ERJ-2RKF2000X     TopLayer    FP-ERJ2RK-IPC_A         12.000        332.000       90       "RES SMD 200 OHM 1% 1/10W 0402"
+D4         QBLP595-IB        TopLayer    FP-QBLP595-IB-MFG       -59.000       189.000       90       "LED BLUE CLEAR 0402 SMD"
+D3         APHHS1005SURCK    TopLayer    FP-APHHS1005SURCK-MFG   -57.000       333.000       90       "LED RED CLEAR CHIP SMD"
+D2         SML-P11DTT86R     TopLayer    FP-SML-P11-MFG          -57.000       261.150       90       "LED ORANGE CLEAR 1006 SMD"
+C6         CL03A105MQ3CSNC   TopLayer    FP-CL03-IPC_A           228.000       -85.000       135      "Cap Ceramic 1uF 6.3V X5R ±20% Pad SMD 0201 +85°C T/R"
+D1         RCLAMP1521PQTCT   TopLayer    RCLAMP1521PQTCT         315.000       -51.000       135      "TVS Diode (Bi-directional)"
+C3         CL03A105MQ3CSNC   TopLayer    FP-CL03-IPC_A           -129.000      -83.000       180      "Cap Ceramic 1uF 6.3V X5R ±20% Pad SMD 0201 +85°C T/R"
+C2         CL03A105MQ3CSNC   TopLayer    FP-CL03-IPC_A           140.000       -167.000      135      "Cap Ceramic 1uF 6.3V X5R ±20% Pad SMD 0201 +85°C T/R"
+C1         CL03A105MQ3CSNC   BottomLayer FP-CL03-IPC_A           108.000       25.000        90       "Cap Ceramic 1uF 6.3V X5R ±20% Pad SMD 0201 +85°C T/R"
+RT1        NCP15XH103F03RC   BottomLayer THRMC1005X55N           334.000       85.000        135      Thermistor
+C7         CC0402KRX5R9BB104 TopLayer    FP-CC0402-MFG           -128.000      -135.000      180      "CAP CER 0.1UF 50V X5R 0402"
+C5         CC0402KRX5R9BB104 TopLayer    FP-CC0402-MFG           188.000       -121.000      135      "CAP CER 0.1UF 50V X5R 0402"
+U2         ADP150AUJZ-3.3-R7 TopLayer    ADI-UJ-5_M              26.000        -205.000      90       "Ultralow Noise, 150 mA CMOS Linear Regulator, 2.2 to 5.5 V Vin, 3.3 V Vout, Industrial, 5-pin SOT23 (UJ-5), Reel"
+J2         1053092302        TopLayer    105309YY02_U            -348.378      184.000       90       Connector
+J1         10114830-11108LF  TopLayer    1011483011108LF         423.760       188.028       97.5     Connector
+MH3        MH                TopLayer    MH_1.6MM                -562.559      -324.803      0        "MOUNTING HOLE, M1.6, 4.0mm PAD"
+MH2        MH                TopLayer    MH_1.6MM                562.559       -324.803      0        "MOUNTING HOLE, M1.6, 4.0mm PAD"
+MH1        MH                TopLayer    MH_1.6MM                0.000         649.606       0        "MOUNTING HOLE, M1.6, 4.0mm PAD"
+U1         SENSOR_MPS_MA732  BottomLayer QFN50P300X300X100-16-TP 0.000         0.000         90       "SENSOR, ANGLE, 9 BIT TO 14 BIT RESOLUTION, 14-BIT PWM OUTPUT, 3.3V, 12mA, QFN-16"

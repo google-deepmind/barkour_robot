@@ -1,0 +1,38 @@
+options:
+    mini_bom_mode: false
+
+connectors:
+    Rus STO Port:
+        # Molex Nanofit Receptacle Housing, 2x3, Black
+        <<: *1053081206
+        pinlabels: [VDD_24, STO2, LED2_P, LED2_N, RTN1, GND]
+        additional_components:
+            -
+                <<: *1053002300
+                qty_multiplier: populated
+
+    Hopper:
+        # Molex Nanofit Receptacle Housing, 2x3, Black
+        <<: *1053081206
+        pinlabels: [VDD_24, STO2, LED2_P, LED2_N, RTN1, GND]
+        additional_components:
+            -
+                <<: *1053002300
+                qty_multiplier: populated
+
+cables:
+
+    # AlphaWire 5006C 6 wire flex cable
+    W1:
+        <<: *5006C
+        length: 240 mm
+        notes: |
+            1. Add label "Rus STO2 to Hopper".
+            2. Length measurement is from rear face to rear face of connectors
+            3. Leave ~15mm of exposed wires unjacketed from the cable at each end
+
+connections:
+    -
+        - Rus STO Port: [1,2,3,4,5,6]
+        - W1: [1,2,3,4,5,6]
+        - Hopper: [1,2,3,4,5,6]

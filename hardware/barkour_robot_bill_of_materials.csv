@@ -1,0 +1,210 @@
+,No. of Robots : 1,,,,,,,
+Item No.,PART,Specification/ Unit,TYPE,MANUFACTURER, Mfg. Product No. / SKU,Source,Total Quantity Required,Additional Notes
+Motor Module,,,,,,,,
+1,AK80-9 Motors,"48V, 9Nm, 390RPM",Electronics,TMotor,,T-Motor,12,
+2,Gebru,see schematic,Electronics,,,Custom Order,12,
+3,Cortes,see schematic,Electronics,,,Custom Order,12,
+4,Ada,see schematic,Electronics,,,Custom Order,12,
+5,Heat Sinks,Aluminum 7075,Machined,,,Custom Order,12,
+6,Ada Separator,Acetal Copolymer (POM-C),Machined,,,Custom Order,12,
+7,Thermal Pad,"Silicone Elastomer, 2mm thickness",Other,DigiKey,5595S-210MMX300MM,DigiKey,1,Cut to size.
+8,Thermal Paste,0.864 w/m-k,Other,McMaster,1688N12,McMaster,1,
+Tri-Motor,,,,,,,,
+9,Hip Bracket,Aluminum 7075,Machined,,,Custom Order,4,
+10,Knee Bracket (Left),Aluminum 7075,Machined,,,Custom Order,2,
+11,Knee Bracket (Right),Aluminum 7075,Machined,,,Custom Order,2,
+12,Abduction HardStop,Aluminum 7075,Machined,,,Custom Order,4,
+13,Hip HardStop,Aluminum 7075,Machined,,,Custom Order,4,
+14,Cleats,Stainless Steel 17-4 PH,Machined,,,Custom Order,48,
+15,Hip Cover,HP PA 11 (nylon),3D Printed,,,Custom Order,4,
+16,Hip Cover Clamps,HP PA 11 (nylon),3D Printed,,,Custom Order,8,
+17,Knee Cable Cover Top,HP PA 11 (nylon),3D Printed,,,Custom Order,4,
+18,Knee Cable Cover Bottom,HP PA 11 (nylon),3D Printed,,,Custom Order,4,
+19,Thrust Bushing,PTFE,Machined,,,Custom Order,4,
+20,Wrap-Around Sleeving,"1/2"" ID, 10ft cut to length",Hardware,McMaster,1459T818,McMaster,1,
+21,Hip-Power-Distro,See cable drawing,Wiring,,,Custom Order,4,
+22,Fei-Fei_to_A+H_RE,See cable drawing,Wiring,,,Custom Order,2,
+23,Fei-Fei_to_A+H_FR,See cable drawing,Wiring,,,Custom Order,2,
+24,NUC_ECAT_TORSO,See cable drawing,Wiring,,,Custom Order,1,
+25,A2H_ECAT,See cable drawing,Wiring,,,Custom Order,4,
+26,H2K_ECAT,See cable drawing,Wiring,,,Custom Order,4,
+27,K2H_COVER_ECAT,See cable drawing,Wiring,,,Custom Order,4,
+28,Hip-Return-SS-Ecat,See cable drawing,Wiring,,,Custom Order,2,
+29,Hip_Return_OS_ECAT,See cable drawing,Wiring,,,Custom Order,2,
+30,Hip_Return_to_Rus_STO_TORSO ,See cable drawing,Wiring,,,Custom Order,1,
+31,Hip_Return_To_RUS_STO_DFB,See cable drawing,Wiring,,,Custom Order,1,
+Legs,,,,,,,,
+32,Inner Upper Leg (Left),Aluminum 7075,Machined,,,Custom Order,2,
+33,Outer Upper Leg (Left),Aluminum 7075,Machined,,,Custom Order,2,
+34,Inner Upper Leg (Right),Aluminum 7075,Machined,,,Custom Order,2,
+35,Outer Upper Leg (Right),Aluminum 7075,Machined,,,Custom Order,2,
+36,Crank (Left),Aluminum 7075,Machined,,,Custom Order,2,
+37,Crank (Right),Aluminum 7075,Machined,,,Custom Order,2,
+38,Linkage,Aluminum 7075,Machined,,,Custom Order,4,
+39,Knee Half Pin Clearance,Stainless Steel 17-4,Machined,,,Custom Order,4,
+40,Knee Half Pin Tapped,Stainless Steel 17-4,Machined,,,Custom Order,4,
+41,Linkage Half Pin Clearance,Stainless Steel 17-4,Machined,,,Custom Order,4,
+42,Linkage Half Pin Tapped,Stainless Steel 17-4,Machined,,,Custom Order,4,
+43,Lower Leg,PEEK (Polyether Ether Ketone),Machined,,,Custom Order,4,
+44,Leg Bumper,Silicone Rubber,3D Printed,,,Custom Order,4,
+45,Knee Bumper,Silicone Rubber,3D Printed,,,Custom Order,4,
+46,Foot,Fluoroelastomer (FKM),3D Printed,,,Custom Order,4,
+47,"Flanged Ultra-Thin Ball Bearing
+","Open, 12 mm ID, 21mm OD, 5mm wide",Hardware,McMaster,4390N122,McMaster,8,
+48,Stainless Steel Ball Bearing,"6mm ID, 12mm OD, 4mm wide",Hardware,McMaster,7804K112,McMaster,16,
+Deep Fry Basket,,,,,,,,
+49,DFB,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+50,Antenna Panel,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+51,USB Panel,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+52,Battery Holder,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+53,Anode/Cathode Electrodes," Copper C101, Nickel plating",Machined,,,Custom Order,2,
+54,U-Shaped Electrode," Copper C101, Nickel plating",Machined,,,Custom Order,1,
+55,Rus HeatSink," Copper C101, Nickel plating",Machined,,,Custom Order,1,
+56,RUS,see schematic,Electronics,,,Custom Order,1,
+57,Hopper,see schematic,Electronics,,,Custom Order,1,
+58,Remote E-stop Transceiver Module,"RF TXRX 802.15.4 U.FL SMD, 2.4GHz",Electronics,Digi,XB3-24Z8UM,DigiKey,2,
+59,Hamilton,see schematic,Electronics,,,Custom Order,1,
+60,NUC RAM,RAM Kingston FURY 64GB DDR4 3200MHz,Electronics,Kingston Technologies,‎KF432S20IBK2/64,Amazon,2,
+61,NUC SSD,2048G NVMe M.2 SSD,Electronics,Kingston Technologies,‎SKC3000D/2048G,Amazon,1,
+62,NUC WiFi Card,"WiFi 6, 2400 Mbps, BT 5.2",Electronics,NICGIGA,AX201,Amazon,1,
+63,Ethernet Adapter,"USB 3.0 male A to RJ45 female, 1000 Mbps",Electronics,TP-Link,UE306,Amazon,1,
+64,Intel NUC 11 Intel Core i7 4.4 GHz,Intel NUC 11 Intel Core i7 4.4 GHz,Electronics,Intel,BNUC11TNBV70000,Mouser,1,
+65,IMU,"UART, USB",Electronics,MicroStrain,3DM-CV7-AHRS,Mouser,1,
+66,WiFi Antenna,RF ANT 2.4Ghz/5.5Ghz,Electronics,Abracon LLC,PRO-EX-285,DigiKey,2,
+67,Cable Assembly Coaxial SMA to IPEX MHF4,152.00mm,Electronics,Adam Tech,CA-DKCA1-152L0-AJI5,DigiKey,2,
+68,On-robot E-stop Antenna,RF ANT 2.4Ghz,Electronics,OTS (OTHER),PRO-EX-296,DigiKey,1,
+69,DeWalt DCB546(606) Battery,"6AH, 60V",Electronics,DeWalt,DCB606,Home Depot,2,
+70,DeWalt Battery Handles,"1 x 17"",tensile strength > 2.5lbs",Hardware,ULINE,S-6782,Uline,1,
+71,RGB Fan,"40mm, 24V",Electronics,WINSINN,RGBFAN301024VH,Amazon,2,
+72,2POS molex connector,"Receptable, 2.5mm nano fit",Electronics,Molex,1053071202,Digikey,2,
+73,nano-fit crimp,"24-26AWG, female",Electronics,Molex,1053001200,Digikey,2,
+74,M12 Ethernet Cable (Internal),See cable drawing (34_Internal_Ethernet_Access),Wiring,,1440591,Mouser,1,Cut to length.
+75,Pheonix Contact M12 Ethernet Cable (External),10m,Wiring,PC,1080737,Mouser,1,
+76,USB C to C Panel Mount Cable,See cable drawing,Wiring,,,Custom Order,1,
+77,USB A to C Panel Mount Cable,See cable drawing,Wiring,,,Custom Order,1,
+78,NUC to RUS Cable,MICRO-FIT3.0 R-R 4 CIRCUIT 150MM,Wiring,Mouser,2147552041,Mouser,1,
+79,NUC Internal USB for IMU,1.25mm 1x4 Pin each side,Wiring,Gorite,INTL-4P4P-6IN,Micro SATA Cables,1,
+80,Rus_Power_In,See cable drawing,Wiring,,,Custom Order,1,
+81,STO Switch,See cable drawing,Wiring,,,Custom Order,1,
+82,Power Switch,See cable drawing,Wiring,,,Custom Order,1,
+83,NUC_ECAT_DFB,See cable drawing,Wiring,,,Custom Order,1,
+84,Rus_to_Hopper,See cable drawing,Wiring,,,Custom Order,1,
+85,Rus_to_Fei-Fei,See cable drawing,Wiring,,,Custom Order,1,
+Torso,,,,,,,,
+86,Combined Face plate,Anodized Aluminum 7075,Machined,,,Custom Order,2,
+87,Chassis (Torso),HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+88,Handle,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+89,Camera Mount,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+90,Abduction Grommet Top,HP PA 11 (nylon),3D Printed,,,Custom Order,4,
+91,Abduction Grommet Bottom,HP PA 11 (nylon),3D Printed,,,Custom Order,4,
+92,Padding (FR/RL),Silicone Rubber,3D Printed,,,Custom Order,2,
+93,Padding (FL/RR),Silicone Rubber,3D Printed,,,Custom Order,2,
+94,Holberton,see schematic,Electronics,,,Custom Order,1,
+95,Fei-Fei,see schematic,Electronics,,,Custom Order,1,
+96,Narrow-Grip Locking Quick-Release Pin," 6mm Diameter, 25mm Usable Length",Hardware,McMaster,93871A110,McMaster,1,
+Remote,,,,,,,,
+97,WSTO Cover Base,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+98,WSTO Cover Lid,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+99,Grace,see schematic,Electronics,,,Custom Order,1,
+100,Remote E-stop Portable Power Bank,"Input: 5V / 2.4A, output: 5V / 2.4A",Electronics,TNTOR,WT-H369,Amazon,1,
+101,Remote E-stop Power Bank Cable,"USB A 2.0 to USB C Up Angled, 13cm, flat slim",Electronics,Xiwai,UC-096-UP-0.13M-XY,Amazon,1,
+102,Remote E-stop Antenna,"2.4GHz Whip, Straight RF. Panel Mount",Electronics,Digi,A24-HABUF-P5I-ND,Digikey,1,
+103,Remote E-stop Button,SW ESTOP 3A 125V 40mm Mushrom,Electronics,IDEC,XA1E-BV404-R,DigiKey,1,
+104,XBox Controller,,Electronics,Microsoft,QAU-00021,Amazon,1,
+105,Mataric Debug Board,see schematic,Electronics,,,Custom Order,1,
+106,J-Link Pro (cables included),,Electronics,Segger,8.12.00,Segger,1,
+107,Samtec 20 Position Cable Assembly,"Socket to Socket, 1.27mm",Electronics,Samtec Inc.,SFSD-10-28-G-10.00-D-NDX,Digikey,1,
+Static Head,,,,,,,,
+108,Head (Real Sense Camera Cover),HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+109,Neck,HP PA 11 (nylon),3D Printed,,,Custom Order,1,
+110,Real Sense Depth Camera D435i,"90 fps, RGB",Electronics,Intel,82635D435IDK5P,Mouser,1,
+111,USB C to C for Realsense Camera,See cable drawing,Wiring,,,Custom Order,1,
+112,OAK-FFC Platform (Luxonis Board),,Electronics,Luxonis,OAK-FFC 4P,Luxonis,1,
+113,OAK-FFC Camera Module,"OV9782, 1280 x 800 at 120 FPS",Electronics,Luxonis,OAK-FFC-OV9782-M12,Luxonis,1,
+114,OAK Lens,"1/2.3″,  2.72 mm",Electronics,ArduCam,M23272M14 (LN056),Dlscorp,1,
+115,OAK FFC Cable,25cm,Wiring,Luxonis,OAK-FFC-UC921-3,Luxonis,1,
+Actuated Head,,,,,,,,
+116,Jackson,see schematic,Electronics,,,Custom Order,1,
+117,Neck Base,Markforged Continous Fiberglass or Carbon,3D Printed,,,Custom Order,1,
+118,Neck Base Cover,Markforged Continous Fiberglass or Carbon,3D Printed,,,Custom Order,1,
+119,Bracket Stop Neck Pitch,SLS PA 11 0R 12,3D Printed,,,Custom Order,1,
+120,Neck Structure,Markforged Continous Fiberglass or Carbon,3D Printed,,,Custom Order,1,
+121,Spring Mandrel,SLS PA 11 0R 12,3D Printed,,,Custom Order,1,
+122,Head Structure,Markforged Continous Fiberglass or Carbon,3D Printed,,,Custom Order,1,
+123,Camera Bracket,Markforged Continous Fiberglass or Carbon,3D Printed,,,Custom Order,1,
+124,Spacer Washer,SLS PA 11 0R 12,3D Printed,,,Custom Order,1,
+125,Jaw Upper Structure,SLS PA 11 0R 12,3D Printed,,,Custom Order,1,
+126,Jaw Lower Structure,SLS PA 11 0R 12,3D Printed,,,Custom Order,1,
+127,Neck (Right),SLS PA 12,3D Printed,,,Custom Order,1,
+128,Neck (Left),SLS PA 12,3D Printed,,,Custom Order,1,
+129,Head,SLS PA 12,3D Printed,,,Custom Order,1,
+130,Jaw Lower Outer,SLS PA 12,3D Printed,,,Custom Order,1,
+131,Bracket Stop Neck Pitch Upper,SLS PA 12,3D Printed,,,Custom Order,1,
+132,Flexible light pipe RGB,"Cut length to 3"" from connector end",Electronics,Bivar Inc.,SZ1-6.00-RGB-F4PD,Digikey,1,
+133,OAK-FFC Platform (Luxonis Board),,Electronics,Luxonis,A00470,Luxonis,1,
+134,OAK-FFC Camera Module,"OV9782, 1280 x 800 at 120 FPS",Electronics,Luxonis,OAK-FFC-OV9782-M12,Luxonis,2,
+135,OAK Lens,"1/2.3″,  2.72 mm",Electronics,ArduCam,M23272M14 (LN056),Dlscorp,2,
+136,OAK FFC Cable,25cm,Wiring,Luxonis,OAK-FFC-UC921-3,Luxonis,3,
+137,Dynamixel XH430-W350-T,,Electronics,Robotis,XH430-W350-T,Robotis,2,
+138,Horn for XH430-W350-T,,Hardware,Robotis,EPX430-BR101,Robotis,2,
+139,Idler Bearing for XH430-W350-T,,Hardware,Robotis,HN12-I101,Robotis,1,
+140,Brass Screw-to-Expand Inserts for Plastic,"M3 x 0.5 mm Thread, 4.8 mm Installed Length",Hardware,McMaster,94510A030,McMaster,11,Pack of 50
+141,Brass Tapered Heat-Set Inserts for Plastic,"M3 x 0.5 mm Thread, 6.4 mm Installed Length",Hardware,McMaster,94180A333,McMaster,25,Pack of 100
+142,Shims (Head),"20MM ID, 28MM OD",Hardware,McMaster,90214A441,McMaster,2,Pack of 5
+143,Oversized washer M2.5,"M2.5, 0.7-0.9 Thick, 2.7mm ID, 8mm OD",Hardware,McMaster,91100A110,McMaster,4,Pack of 100
+144,Wave Disc Spring (HEAD),"0.012"" Thick, 0.787"" ID, 1.094"" OD",Hardware,McMaster,9714K18,McMaster,1,Pack of 10
+145,Torsion Spring,"        0.68"" Length, 2"" Leg Length, 0.659"" ID, ",Hardware,Century Spring,TO-5188L,Century Spring,1,
+146,Jumper Lead Socket to Socket,MINI SPOX 2.5 F-F 225MM 22 AWG B,Hardware,Molex,2196761123,Digikey,6,
+147,3 Rectangular Connectors,CONN RCPT HSG 3POS 2.50mm,Hardware,JST Sales America Inc.,EHR-3,Digikey,4,
+148,Socket Contact Crimp,CONN SOCKET 22-30AWG CRIMP TIN,Hardware,JST Sales America Inc.,SEH-001T-P0.6,Digikey,,
+149,Lockring,M12X0.5,Hardware,Basler Inc.,2000035198,Digikey,4,
+150,USB A to C for Oak Board,See cable drawing,Wiring,,,Custom Order,1,
+151,Adhesive-Back Foam Sheet,"1/8"" Thick",Other,McMaster,8613K11,McMaster,1,Per sheet. Cut to size.
+152,Ziptie,92mmx2.3mm,Other,Thomas & Betts,TY23MX,Amazon,1,Pack of 1000
+Screws,,,,,,,,
+153,Thread-Forming Screws T6 Torx Drive,M2 x 6 mm Long,Hardware,McMaster,96817A312,McMaster,8,"Pack of 25, Drill bit: 30585A74 | $1.47"
+154,Thread-Forming Screws T8 Torx Drive,M2.5 x 6 mm Long,Hardware,McMaster,96817A317,McMaster,4,"Pack of 50, Drill bit: 30585A69 | $1.47"
+155,Zinc-Plated Alloy Steel Hex Drive FHCS,"M2 x 0.40 mm Thread Size, 4 mm Long",Hardware,McMaster,91263A411,McMaster,8,Pack of 50
+156,Zinc-Plated Steel T6 Torx FHCS,"M2 x 0.4 mm Thread Size, 12 mm Long",Hardware,McMaster,90236A107,McMaster,36,Pack of 50
+157,Zinc-Plated Alloy Steel Hex Drive FHCS,"M2.5 x 0.45 mm Thread Size, 5 mm Long",Hardware,McMaster,91263A421,McMaster,4,Pack of 50
+158,Zinc-Plated Alloy Steel Hex Drive FHCS,"M3 x 0.5 mm Thread, 8 mm Long",Hardware,McMaster,91263A823,McMaster,6,Pack of 100
+159,Black-Oxide Alloy Steel Hex Drive FHCS,"M3 x 0.50 mm Thread, 10 mm Long",Hardware,McMaster,91294A130,McMaster,6,Pack of 100
+160,Black-Oxide Alloy Steel Hex Drive FHCS,"M3 x 0.50 mm Thread, 12 mm Long",Hardware,McMaster,91294A132,McMaster,2,
+161,Black-Oxide Alloy Steel Hex Drive FHCS,"M3 x 0.50 mm Thread, 16 mm Long",Hardware,McMaster,91294A134,McMaster,3,Pack of 100
+162,Black-Oxide Alloy Steel Hex Drive FHCS,"M3 x 0.50 mm Thread, 22 mm Long",Hardware,McMaster,91294A137,McMaster,3,Pack of 50
+163,Black-Oxide Alloy Steel Hex Drive FHCS," M5 x 0.80 mm Thread, 40 mm Long",Hardware,McMaster,91294A219,McMaster,4,Pack of 50
+164,Zinc-Plated Alloy Steel Hex Drive SHCS,"M2 x 0.4 mm Thread, 5 mm Long",Hardware,McMaster,90128A177,McMaster,8,Pack of 100
+165,Zinc-Plated Alloy Steel Hex DriveSHCS,"M2 x 0.4 mm Thread, 6 mm Long",Hardware,McMaster,90128A178,McMaster,20,Pack of 100
+166,Zinc-Plated Alloy  Hex Drive Steel SHCS,"M2 x 0.4 mm Thread, 8 mm Long",Hardware,McMaster,90128A179,McMaster,15,Pack of 100
+167,Zinc-Plated Alloy Hex Drive Steel SHCS,"M4 x 0.7 mm Thread, 20 mm Long
+",Hardware,McMaster,90128A216,McMaster,,Pack of 100
+168,Black Oxide Alloy Hex Drive Steel SHCS,"M2.5 x 0.45 mm Thread, 5 mm Long",Hardware,McMaster,91290A100,McMaster,16,Pack of 50
+169,Black Oxide Alloy  Hex Drive Steel SHCS,"M2.5 x 0.45 mm Thread, 12 mm Long",Hardware,McMaster,91290A104,McMaster,4,Pack of 100
+170,Black Oxide Alloy Steel  Hex Drive SHCS,"M2.5 x 0.45 mm Thread, 16 mm Long",Hardware,McMaster,91290A106,McMaster,6,Pack of 50
+171,Black Oxide Alloy Steel Hex Drive SHCS,"M2 x 0.4 mm Thread, 5 mm Long",Hardware,McMaster,91290A012,McMaster,10,Pack of 100
+172,Black Oxide Alloy Steel Hex Drive  SHCS,"M2 x 0.4 mm Thread, 16 mm Long",Hardware,McMaster,91290A047,McMaster,3,Pack of 100
+173,Black Oxide Alloy Steel Hex Drive SHCS,"M3 x 0.5 mm Thread, 6 mm Long",Hardware,McMaster,91290A111,McMaster,148,2x Pack of 100
+174,Black Oxide Alloy Hex Drive Steel SHCS,"M3 x 0.5 mm Thread, 8 mm Long",Hardware,McMaster,91290A113,McMaster,43,Pack of 100
+175,Black Oxide Alloy Steel Hex Drive SHCS,"M3 x 0.5 mm Thread, 10 mm Long",Hardware,McMaster,91290A115,McMaster,76,Pack of 100
+176,Black Oxide Alloy Steel Hex Drive SHCS,"M3 x 0.5 mm Thread, 12 mm Long",Hardware,McMaster,91290A117,McMaster,81,Pack of 100
+177,Black Oxide Alloy Steel Hex Drive SHCS,"M3 x 0.5 mm Thread, 20 mm Long",Hardware,McMaster,91290A123,McMaster,19,Pack of 100
+178,Black Oxide Alloy Steel Hex Drive SHCS,"M4 x 0.7 mm Thread, 8 mm Long",Hardware,McMaster,91290A140,McMaster,78,Pack of 100
+179,Black Oxide Alloy Steel Hex Drive SHCS,"M4 x 0.7 mm Thread, 16 mm Long",Hardware,McMaster,91290A154,McMaster,8,Pack of 100
+180,Black-Oxide 18-8 Stainless Steel Hex Drive BHCS,"M4 x 0.70 mm Thread, 16 mm Long",Hardware,McMaster,97763A425,McMaster,16,2x Pack of 10
+181,Black-Oxide Alloy Steel Hex Drive BHCS,"M4 x 0.70 mm Thread, 20 mm Long",Hardware,McMaster,91239A152,McMaster,6,Pack of 100
+182,Nylon PH Phillips Screws,"M2 x 0.40 mm Thread, 10mm Long",Hardware,McMaster,92492A705,McMaster,36,Pack of 100
+183,Nylon PH Phillips Screws,"M3 x 0.50 mm Thread, 12mm",Hardware,McMaster,92492A719,McMaster,36,Pack of 100
+184,Nylon Plastic Hex Drive SHCS,"M3 x 0.5 mm Thread, 6 mm Long",Hardware,McMaster,93640A142,McMaster,12,Pack of 100
+185,Blue-Dyed Zinc-Plated Alloy Steel  Hex Drive SHCS,"M3 x 0.5 mm Thread, 8 mm Long",Hardware,McMaster,91502A103,McMaster,21,Pack of 100
+186,Black-Oxide Alloy Steel Hex Drive FHCS,"M4 x 0.70 mm Thread, 20 mm Long",Hardware,McMaster,91294A196,McMaster,10,Pack of 100
+187,"18-8 Stainless Steel Nylon-Insert Locknut
+",M2 x 0.4 mm Thread,Hardware,McMaster,93625A101,McMaster,3,Pack of 10
+188,Black-Oxide 18-8 Stainless Steel Nylon-Insert Locknut,M3 x 0.5 Thread,Hardware,McMaster,93625A223,McMaster,12,2x Pack of 10
+189,Zinc-Plated Steel Washer,"M2 Screw Size, 2.200 mm ID, 4.500 mm OD",Hardware,McMaster,98688A110,McMaster,8,Pack of 100
+190,Zinc-Plated Steel Square Nut,M4 x 0.7 mm Thread,Hardware,McMaster,96887A118,McMaster,4,Pack of 25
+191,18-8 Stainless Steel Dowel Pin,3 x 5mm,Hardware,McMaster,91585A334,McMaster,36,Pack of 50
+192,Brass Tapered Heat-Set Inserts,"M3 x 0.5 mm Thread, 3.8 mm Long",Hardware,McMaster,94180A331,McMaster,10,Pack of 100
+193,Brass Tapered Heat-Set Inserts,"M4 x 0.7 mm Thread , 4.7 mm Lonth",Hardware,McMaster,94180A351,McMaster,14,Pack of 100
+194,"Threadlocker, Loctite® 243",,Hardware,McMaster,91458A116,McMaster,1,
+195,"Threadlocker, Loctite® 245",,Hardware,McMaster,91458A370,McMaster,1,
+196,"Threadlocker, Loctite® 262",,Hardware,McMaster,91458A180,McMaster,1,

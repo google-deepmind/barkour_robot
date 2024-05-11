@@ -1,0 +1,7 @@
+bazel_dep(name = "abseil-cpp",
+          version = "20240116.1",
+          repo_name = "com_google_absl")
+
+bazel_dep(name = "googletest",
+          version = "1.14.0.bcr.1",
+          repo_name = "com_google_googletest")
