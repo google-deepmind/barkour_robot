@@ -1,7 +1,5 @@
 # Barkour Robot
 
-[TOC]
-
 The Barkour Robots are a series of agile quadruped robots developed by Google
 DeepMind to support various research projects.
 
