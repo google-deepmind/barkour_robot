@@ -1,0 +1,28 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Holberton.PcbDoc   5/13/2024  2:07:15 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Holberton-RoundHoles.TXT
+ASCII SlotHoles File : Holberton-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.152mm (6mil)          +0mm (0mil)/-0.152mm (6mil)       Round             199       PTH        221.75mm (8.73inch)
+T2      0.203mm (8mil)          +0mm (0mil)/-0.203mm (8mil)       Round             470       PTH        1130.83mm (44.52inch)
+T3      0.254mm (10mil)         +0mm (0mil)/-0.254mm (10mil)      Round             272       PTH        776.24mm (30.56inch)
+T4      0.305mm (12mil)         +0mm (0mil)/-0.305mm (12mil)      Round             6         PTH        6.45mm (0.25inch)
+T5      0.381mm (15mil)         +/-0.076mm (3mil)                 Round             159       PTH        312.02mm (12.28inch)
+T6      1.016mm (40mil)         +/-0.076mm (3mil)                 Round             2         PTH        42.80mm (1.68inch)
+T7      1.194mm (47mil)         +/-0.076mm (3mil)                 Round             3         PTH        18.58mm (0.73inch)
+T8      1.219mm (48mil)         +/-0.076mm (3mil)                 Round             18        PTH        84.87mm (3.34inch)
+T9      1.7mm (67mil)           +/-0.076mm (3mil)                 Round             2         PTH        9.87mm (0.39inch)
+T10     3.3mm (130mil)          +/-0.076mm (3mil)                 Round             3         PTH        95.26mm (3.75inch)
+T11     1.321mm (52mil)         +/-0.051mm (2mil)                 Round             1         NPTH       0.00mm (0.00inch)
+T12     1.6mm (63mil)           +/-0.051mm (2mil)                 Round             2         NPTH       13.18mm (0.52inch)
+T13     1.6mm (63mil)           +/-0.051mm (2mil)                 Slot              2         NPTH       26.52mm (1.04inch)
+T14     1.651mm (65mil)         +/-0.051mm (2mil)                 Round             2         NPTH       15.85mm (0.62inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              1141
+
+Total Processing Time (hh:mm:ss) : 00:00:01

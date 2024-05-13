@@ -1,7 +1,5 @@
 # Barkour Robot
 
-[TOC]
-
 The Barkour Robots are a series of agile quadruped robots developed by Google
 DeepMind to support various research projects.
 
@@ -37,7 +35,7 @@ Detailed documentation is available in the `docs/` folder:
 Mechanical CAD files and simulation environments are available at the following
 links:
 
-*   [CAD model](https://gdm.onshape.com/documents/2587dbf423d784b45437b14a/v/9e6d8c9f353498d7137f0ccc/e/bdcd5797385cee9e4f78dfef?aa=true)
+*   [CAD model](https://gdm.onshape.com/documents/2587dbf423d784b45437b14a/v/b07bb08c3dc8b02bae21b866/e/bdcd5797385cee9e4f78dfef?aa=true)
 *   Simulation:
     *   [MuJoCo model](https://github.com/google-deepmind/mujoco_menagerie/tree/main/google_barkour_vb)
     *   [MJX tutorial](https://github.com/google-deepmind/mujoco/blob/main/mjx/tutorial.ipynb)
@@ -46,7 +44,7 @@ links:
 
 We release 2 versions of the Barkour Robot. One version has a fixed head, the
 other has an actuated head with a mouth (gripper). You can find the
-[CAD models here](https://gdm.onshape.com/documents/2587dbf423d784b45437b14a/v/9e6d8c9f353498d7137f0ccc/e/bdcd5797385cee9e4f78dfef?aa=true)
+[CAD models here](https://gdm.onshape.com/documents/2587dbf423d784b45437b14a/v/b07bb08c3dc8b02bae21b866/e/bdcd5797385cee9e4f78dfef?aa=true)
 for both versions.
 
 ![Barkour Robot CAD Model](docs/images/readme/barkour_cad_versions.gif)
