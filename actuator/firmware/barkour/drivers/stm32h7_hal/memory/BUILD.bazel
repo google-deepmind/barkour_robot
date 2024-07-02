@@ -1,0 +1,38 @@
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "memory",
+    srcs = ["memory.cc"],
+    hdrs = ["memory.h"],
+    #copts = [
+    #    "-fno-exceptions",
+    #    "-fno-unwind-tables",
+    #],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:memory_interface",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+        "@freertos//:freertos",
+        "@stm32cubeh7//:cmsis_headers",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "fake_memory",
+    srcs = ["fake_memory.cc"],
+    hdrs = [
+        "fake_memory.h",
+        "memory.h",
+    ],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:memory_interface",
+        "@pigweed//pw_status",
+    ],
+)

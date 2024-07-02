@@ -1,0 +1,40 @@
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "spi",
+    srcs = ["spi.cc"],
+    hdrs = ["spi.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:spi_interface",
+        "@freertos//:freertos",
+        "@stm32cubeh7//:cmsis_headers",
+        "@stm32cubeh7//:stm32h7_hal",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+    ],
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+       "@platforms//cpu:armv7e-m": [],
+       "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "fake_spi",
+    srcs = ["fake_spi.cc"],
+    hdrs = [
+        "fake_spi.h",
+        "spi.h",
+    ],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:spi_interface",
+        "@pigweed//pw_status",
+    ],
+)

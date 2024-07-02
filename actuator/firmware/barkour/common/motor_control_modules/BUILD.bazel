@@ -1,0 +1,131 @@
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_test")
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "control_module_manager",
+    hdrs = ["control_module_manager.h"],
+    includes = ["."],
+    deps = [
+        ":motor_control_module",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_containers:flat_map",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "control_module_manager_test",
+    srcs = ["control_module_manager_test.cc"],
+    deps = [
+        ":control_module_manager",
+        ":fake_motor_control_module",
+        ":motor_control_module",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "@pigweed//pw_containers:flat_map",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "fake_motor_control_module",
+    srcs = ["fake_motor_control_module.cc"],
+    hdrs = ["fake_motor_control_module.h"],
+    includes = ["."],
+    deps = [
+        ":motor_control_module",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "motor_control_module",
+    srcs = ["motor_control_module.cc"],
+    hdrs = ["motor_control_module.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "motor_control_module_test",
+    srcs = ["motor_control_module_test.cc"],
+    deps = [
+        ":fake_motor_control_module",
+        ":motor_control_module",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "current_control_module",
+    srcs = ["current_control_module.cc"],
+    hdrs = ["current_control_module.h"],
+    deps = [
+        ":motor_control_module",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "//actuator/firmware/barkour/common/interfaces:realtime_foc_interface",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "current_control_module_test",
+    srcs = ["current_control_module_test.cc"],
+    deps = [
+        ":current_control_module",
+        ":motor_control_module",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "//actuator/firmware/barkour/drivers/testing:fake_adc",
+        "//actuator/firmware/barkour/drivers/testing:fake_foc",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "zero_output_control_module",
+    srcs = ["zero_output_control_module.cc"],
+    hdrs = ["zero_output_control_module.h"],
+    deps = [
+        ":motor_control_module",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "zero_output_control_module_test",
+    srcs = ["zero_output_control_module_test.cc"],
+    tags = ["nomsan"],
+    deps = [
+        ":zero_output_control_module",
+        "//actuator/firmware/barkour/drivers/testing:fake_gate_driver",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)

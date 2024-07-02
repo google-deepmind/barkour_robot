@@ -1,0 +1,239 @@
+load(
+    "@pw_toolchain//cc_toolchain:defs.bzl",
+    "pw_cc_flag_set",
+    "pw_cc_toolchain",
+)
+
+pw_cc_flag_set(
+    name = "mcpu_cortex_m4_flags",
+    actions = [
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+        "@pw_toolchain//actions:all_link_actions",
+    ],
+    flags = [
+        "-mcpu=cortex-m4",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv4-sp-d16",
+        "-DPW_ARMV7M_ENABLE_FPU=1",
+    ],
+)
+
+pw_cc_flag_set(
+    name = "mcpu_cortex_m7_flags",
+    actions = [
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+        "@pw_toolchain//actions:all_link_actions",
+    ],
+    flags = [
+        "-mcpu=cortex-m7",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv4-sp-d16",
+    ],
+)
+
+pw_cc_flag_set(
+    name = "warnings",
+    actions = [
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+    ],
+    flags = [
+        "-Wall",
+        "-Werror",
+        # Make all warnings errors, except for the exemptions below.
+        "-Wno-error=cpp",  # preprocessor #warning statement
+        "-Wno-error=deprecated-declarations",  # [[deprecated]] attribute
+        "-Wno-error=psabi",  # Silence the really verbose ARM warnings.
+        "-Wno-error=expansion-to-defined",
+        "-Wno-error=address-of-packed-member",
+        "-Wno-error=return-type",
+    ],
+)
+
+pw_cc_flag_set(
+    name = "c_standard",
+    actions = [
+        "@pw_toolchain//actions:all_c_compiler_actions",
+    ],
+    flags = ["-std=gnu99"],
+)
+
+pw_cc_flag_set(
+    name = "cpp_standard",
+    actions = [
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+    ],
+    flags = ["-std=c++17"],
+)
+
+pw_cc_flag_set(
+    name = "thumb_abi",
+    actions = [
+        "@pw_toolchain//actions:all_asm_actions",
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+        "@pw_toolchain//actions:all_link_actions",
+    ],
+    flags = [
+        "-mabi=aapcs",
+        "-mthumb",
+    ],
+)
+
+
+# This flag prevents Arm GCC from printing the resolved paths of symlinks,
+# which prevents compilation actions from being hermetic. See
+# https://github.com/bazelbuild/bazel/issues/21981 and
+# https://pwbug.dev/319665090.
+pw_cc_flag_set(
+    name = "no_canonical_system_headers",
+    actions = [
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+    ],
+    flags = [
+        "-fno-canonical-system-headers",
+    ],
+)
+
+pw_cc_flag_set(
+    name = "cortex_common",
+    actions = [
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+    ],
+    flags = [
+        "-ffreestanding",
+        "-specs=nano.specs",
+        "-specs=nosys.specs",
+        "-Wno-builtin-macro-redefined",
+        "-no-canonical-prefixes",
+    ],
+)
+
+pw_cc_flag_set(
+    name = "cortex_common_link",
+    actions = ["@pw_toolchain//actions:all_link_actions"],
+    flags = [
+        "-Wl,--gc-sections",
+        "-Wl,--print-memory-usage",
+        "-no-canonical-prefixes",
+        "-ffreestanding",
+        "--specs=nosys.specs",
+        "--specs=nano.specs",
+        # Default libs to link
+        "-lsupc++_nano",
+        "-lm",
+    ],
+)
+
+pw_cc_flag_set(
+    name = "cortex-m4",
+    actions = [
+        "@pw_toolchain//actions:all_asm_actions",
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+        "@pw_toolchain//actions:all_link_actions",
+    ],
+    flags = [
+        "-mcpu=cortex-m4",
+        "-mfloat-abi=hard",
+        "-mlittle-endian",
+    ],
+)
+
+pw_cc_flag_set(
+    name = "cortex-m7",
+    actions = [
+        "@pw_toolchain//actions:all_asm_actions",
+        "@pw_toolchain//actions:all_c_compiler_actions",
+        "@pw_toolchain//actions:all_cpp_compiler_actions",
+        "@pw_toolchain//actions:all_link_actions",
+    ],
+    flags = [
+        "-mcpu=cortex-m7",
+        "-mfloat-abi=hard",
+        "-mlittle-endian",
+    ],
+)
+
+
+pw_cc_toolchain(
+    name = "arm_gcc_toolchain_cortex-m",
+    action_configs = [
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-ar",
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-gcc",
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-g++",
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-gcov",
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-ld",
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-objcopy",
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-objdump",
+        "@gcc_arm_none_eabi_toolchain//:arm-none-eabi-strip",
+    ],
+    builtin_sysroot = "external/gcc_arm_none_eabi_toolchain",
+    compiler = "gcc",
+    cxx_builtin_include_directories = [
+        "%sysroot%/arm-none-eabi/include/newlib-nano",
+        "%sysroot%/arm-none-eabi/include/c++/10.2.1",
+        "%sysroot%/arm-none-eabi/include/c++/10.2.1/arm-none-eabi",
+        "%sysroot%/arm-none-eabi/include/c++/10.2.1/backward",
+        "%sysroot%/lib/gcc/arm-none-eabi/10.2.1/include",
+        "%sysroot%/lib/gcc/arm-none-eabi/10.2.1/include-fixed",
+        "%sysroot%/arm-none-eabi/include",
+        "%sysroot%/arm-none-eabi/bin",
+    ],
+    flag_sets = [
+        "@pw_toolchain//flag_sets:o2",
+        "@pw_toolchain//flag_sets:c++17",
+        "@pw_toolchain//flag_sets:debugging",
+        "@pw_toolchain//flag_sets:reduced_size",
+        "@pw_toolchain//flag_sets:no_canonical_prefixes",
+        "@pw_toolchain//flag_sets:no_rtti",
+        "@pw_toolchain//flag_sets:wno_register",
+        "@pw_toolchain//flag_sets:wnon_virtual_dtor",
+    ] + select({
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m4": [
+            ":cortex-m4",
+            ":mcpu_cortex_m4_flags",
+        ],
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m7": [
+            ":cortex-m7",
+            ":mcpu_cortex_m4_flags",
+        ],
+        "@pw_toolchain//constraints/arm_mcpu:none": [],
+    }) + [
+        ":thumb_abi",
+        ":cortex_common",
+        ":cortex_common_link",
+        ":no_canonical_system_headers",
+        ":warnings",
+        ":c_standard",
+        ":cpp_standard",
+    ],
+    target_compatible_with = select({
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m4": [],
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m7": [],
+        "@pw_toolchain//constraints/arm_mcpu:none": ["@platforms//:incompatible"],
+    }),
+    toolchain_identifier = "arm-gcc-toolchain",
+)
+
+toolchain(
+    name = "arm_gcc_cc_toolchain_cortex-m4",
+    target_compatible_with = [
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m4",
+    ],
+    toolchain = ":arm_gcc_toolchain_cortex-m",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+)
+
+toolchain(
+    name = "arm_gcc_cc_toolchain_cortex-m7",
+    target_compatible_with = [
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m7",
+    ],
+    toolchain = ":arm_gcc_toolchain_cortex-m",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+)

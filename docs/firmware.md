@@ -1,7 +1,5 @@
 # Firmware
 
-Note: The firmware will be uploaded to the repository soon.
-
 This page provides instructions to compile, flash, and calibrate the motor
 drivers.
 
@@ -29,7 +27,8 @@ To build the firmware binaries and helper scripts, run:
 
 ```
 # From the top-level directory:
-bazel build --cxxopt='-std=c++17' //actuator/firmware/...
+bazel build //actuator/firmware/barkour/m7:m7.elf --platforms=//actuator/firmware/targets/m7:platform
+bazel build //actuator/firmware/barkour/m4:m4.elf --platforms=//actuator/firmware/targets/m4:platform
 ```
 
 ### Unit Tests
@@ -38,7 +37,7 @@ To run the firmware tests on the host, run:
 
 ```
 # From the top-level directory:
-bazel test --cxxopt='-std=c++17' //actuator/firmware/...
+bazel test //actuator/firmware/...
 ```
 
 ## Flashing
@@ -88,25 +87,29 @@ Connect the Mataric board to the Cortes or Holberton board as shown below:
 
 ![Mataric PCBA](images/barkour_hardware/barkour_jlink_and_mataric.png)
 
-Run the `helper.par` script to flash the board:
+Run the `helper` script to flash the board:
 
 ```
-./helper.par --flash --tool=jlink
+bazel run //actuator/firmware/scripts:helper -- --flash -jlink
 ```
 
 ### Flashing with the EtherCAT Bootloader (Single Device)
 
-To flash a single device, invoke helper.par script providing paths to each
+To flash a single device, invoke `helper` script providing paths to each
 binary and specifying EtherCAT device alias of the device to be updated.
 
+Note: `helper` script must be called from the same machine which built the
+script. That is due to multiple dependencies being required at runtime including
+external libraries.
+
 ```
-./helper.par --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --device_alias <device_alias>
+./helper --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --device_alias <device_alias>
 ```
 
 An example of updating a single device with expected output:
 
 ```
-user@ethercat-host:~/binaries_foe$ ./helper.par --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --device_alias 3
+user@ethercat-host:~/binaries_foe$ ./helper --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --device_alias 3
 INFO:absl:Flashing firmware over ethercat
 INFO:absl:M4 binary path: new_fw/m4.bin
 INFO:absl:M7 binary path: new_fw/m7.bin
@@ -131,17 +134,17 @@ ethercat download -a <device_alias> -t uint32 0x3030 00 0x01234567
 
 ### Flashing with the EtherCAT Bootloader (All Devices)
 
-To flash all EtherCAT devices, `helper.par` can be invoked with `--all` flag as
+To flash all EtherCAT devices, `helper` can be invoked with `--all` flag as
 below,
 
 ```
-./helper.par --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --all
+./helper --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --all
 ```
 
 An example of updating all devices with expected output:
 
 ```
-user@ethercat-host:~/binaries_foe$ ./helper.par --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --all
+user@ethercat-host:~/binaries_foe$ ./helper --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --all
 INFO:absl:Flashing firmware over ethercat
 INFO:absl:M4 binary path: new_fw/m4.bin
 INFO:absl:M7 binary path: new_fw/m7.bin

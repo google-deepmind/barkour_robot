@@ -1,0 +1,17 @@
+py_binary(
+    name = "helper",
+    # Because it embeds the test-only unittest image.
+    testonly = True,
+    srcs = ["helper.py"],
+    data = [
+       "//actuator/firmware/barkour/m4:m4.elf",
+       "//actuator/firmware/barkour/m7:m7.elf",
+       "//actuator/firmware/scripts/openocd_configs:openocd.cfg",
+       "@gcc_arm_none_eabi_toolchain//:bin/arm-none-eabi-gdb",
+    ],
+    tags = ["notap"],
+    deps = [
+        "@com_google_absl_py//absl/logging",
+        "@rules_python//python/runfiles",
+    ],
+)

@@ -1,0 +1,341 @@
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_binary", "pw_cc_test")
+load("//actuator/firmware:elf_bin.bzl", "elf_bin")
+
+# M4 core firmware
+load("//actuator/firmware:barkour.bzl", "HARDWARE_VERSION", "m4_binary")
+load("//actuator/firmware/targets/m4:m4.bzl", "M4_STM_DEFINES")
+
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+pw_cc_binary(
+    name = "m4_cc_binary",
+    srcs = ["main_m4.cc"],
+    additional_linker_inputs = ["stm32h755xx_flash_CM4.ld"],
+    copts = [
+        "-Wno-unused-parameter",
+        "-fno-exceptions",
+        "-fno-unwind-tables",
+    ],
+    linkopts = [
+        "-T $(location stm32h755xx_flash_CM4.ld)",
+    ],
+    local_defines = M4_STM_DEFINES,
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    # You can only build this for a platform that specifies the correct FreeRTOS config.
+    target_compatible_with = [
+      "@platforms//cpu:armv7e-m",
+      "//actuator/firmware/targets/m4:freertos_config_m4",
+    ],
+    deps = [
+        ":board_setup_m4",
+        ":controller_thread",
+        ":ecat_device",
+        ":gpio",
+        ":utypes",
+        "//actuator/firmware/targets/m4:core_init_m4",
+        "//actuator/firmware/barkour/common:async_uart_logger",
+        "//actuator/firmware/barkour/common:barkour_system",
+        "//actuator/firmware/barkour/common:board_config",
+        "//actuator/firmware/barkour/common:code_version",
+        "//actuator/firmware/barkour/common:cycle_counter",
+        "//actuator/firmware/barkour/common:multiturn_encoder_wrapper",
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal:aksim2_encoder",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal:ma732_encoder",
+        "@freertos//:freertos",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_function",
+        "@pigweed//pw_log",
+        "@pigweed//pw_log_string:handler",
+        "@pigweed//pw_result",
+        "@pigweed//pw_system:init",
+        "@pigweed//pw_thread:thread",
+    ],
+)
+
+# This genrule needs to live between a m4_binary transition and the m4_cc_binary target to ensure
+# the right cc toolchain is selected, which in turn ensures the correct OBJCOPY tool is available.
+genrule(
+    name = "m4_binary",
+    srcs = [":m4_cc_binary"],
+    outs = ["m4_bin"],
+    cmd = "$(location @gcc_arm_none_eabi_toolchain//:arm-none-eabi-objcopy) -O binary $(<) $(@)",
+    executable = True,
+    tags = ["notap"],
+    toolchains = ["@bazel_tools//tools/cpp:current_cc_toolchain"],
+    tools = ["@gcc_arm_none_eabi_toolchain//:arm-none-eabi-objcopy"],
+)
+
+m4_binary(
+    name = "m4.bin",
+    binary = ":m4_binary",
+    tags = ["notap"],
+)
+
+m4_binary(
+    name = "m4.elf",
+    binary = ":m4_cc_binary",
+    tags = ["notap"],
+)
+
+cc_library(
+    name = "board_setup_m4",
+    srcs = ["board_setup_m4.cc"],
+    hdrs = ["board_setup_m4.h"],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/drivers/stm32h7_hal:gpio_debug",
+        "@pigweed//pw_log",
+        "@stm32cubeh7//:cmsis_headers",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "fake_board_setup_m4",
+    srcs = ["fake_board_setup_m4.cc"],
+    hdrs = ["board_setup_m4.h"],
+    tags = ["nobuilder"],
+    deps = [
+        "@pigweed//pw_log",
+    ],
+)
+
+# A custom pw_sys_io backend for the M4.
+cc_library(
+    name = "sys_io_impl",
+    srcs = ["sys_io_impl.cc"],
+    copts = ["-Wno-unused-parameter"],
+    deps = [
+        "@pigweed//pw_bytes",
+        "@pigweed//pw_status",
+        "@pigweed//pw_sys_io:facade",
+    ],
+)
+
+cc_library(
+    name = "board_config",
+    srcs = ["board_config.cc"],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common:board_config_headers",
+        "@freertos//:freertos",
+        "@pigweed//pw_status",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+pw_cc_test(
+    name = "board_config_test",
+    srcs = ["board_config_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    deps = [
+        ":board_config",
+        "@pigweed//pw_unit_test",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "ds402_drive",
+    srcs = ["ds402_drive.cc"],
+    hdrs = ["ds402_drive.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:commutation",
+        "//actuator/firmware/barkour/common:ds402_state_machine",
+        "//actuator/firmware/barkour/common:manufacturer_status_register",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "//actuator/firmware/barkour/common/motor_control_modules:control_module_manager",
+        "//actuator/firmware/barkour/common/motor_control_modules:motor_control_module",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "ecat_options",
+    hdrs = ["ecat/ecat_options.h"],
+    includes = ["ecat"],
+)
+
+cc_library(
+    name = "utypes",
+    hdrs = ["ecat/utypes.h"],
+    includes = ["ecat"],
+    deps = [
+        ":ecat_options",
+        "@pigweed//pw_sync:mutex",
+    ],
+)
+
+cc_library(
+    name = "objectlist",
+    srcs = ["ecat/objectlist.c"],
+    tags = ["nobuilder"],
+    deps = [
+        ":utypes",
+        "@soes//:esc_coe_header",
+    ],
+)
+
+cc_library(
+    name = "ecat_device",
+    srcs = [
+        "ecat/esc_hw.cc",
+        "ecat_device.cc",
+    ],
+    hdrs = ["ecat_device.h"],
+    defines = HARDWARE_VERSION,
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        ":ecat_options",
+        ":utypes",
+        "//actuator/firmware/barkour/common:board_config",
+        "//actuator/firmware/barkour/common:board_config_headers",
+        "//actuator/firmware/barkour/common:code_version",
+        "//actuator/firmware/barkour/common:serial_number",
+        "//actuator/firmware/barkour/common/bootloader",
+        "//actuator/firmware/barkour/m4:board_setup_m4",
+        "@freertos//:freertos",
+        "@soes//:soes",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_bytes",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+        "@pigweed//pw_sync:mutex",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+  target_compatible_with = select({
+       "@platforms//cpu:armv7e-m": [],
+       "@platforms//cpu:armv7e-mf": [],
+       "//conditions:default": ["@platforms//:incompatible"],
+  }),
+)
+
+cc_library(
+    name = "cc_config",
+    hdrs = ["ecat/cc.h"],
+    includes = ["ecat",],
+)
+
+pw_cc_test(
+    name = "ecat_device_test",
+    srcs = ["ecat_device_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    deps = [
+        ":ecat_device",
+        "@pigweed//pw_unit_test",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "controller_thread",
+    srcs = ["controller_thread.cc"],
+    hdrs = ["controller_thread.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        ":ds402_drive",
+        ":ecat_device",
+        ":utypes",
+        "//actuator/firmware/barkour/common:adc_conversions",
+        "//actuator/firmware/barkour/common:barkour_system",
+        "//actuator/firmware/barkour/common:barkour_system_headers",
+        "//actuator/firmware/barkour/common:board_config",
+        "//actuator/firmware/barkour/common:board_config_headers",
+        "//actuator/firmware/barkour/common:canopen_unit_conversions",
+        "//actuator/firmware/barkour/common:commutation",
+        "//actuator/firmware/barkour/common:derived_sensor_information",
+        "//actuator/firmware/barkour/common:ds402_state_machine",
+        "//actuator/firmware/barkour/common:manufacturer_status_register",
+        "//actuator/firmware/barkour/common:phase_order",
+        "//actuator/firmware/barkour/common:read_sensors",
+        "//actuator/firmware/barkour/common:sensor_reading_types",
+        "//actuator/firmware/barkour/common:simple_lowpass_iir_filter",
+        "//actuator/firmware/barkour/common:thermal_monitor",
+        "//actuator/firmware/barkour/common/interfaces:adc_interface",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "//actuator/firmware/barkour/common/interfaces:gpio_debug_interface",
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "//actuator/firmware/barkour/common/motor_control_modules:control_module_manager",
+        "//actuator/firmware/barkour/common/motor_control_modules:current_control_module",
+        "//actuator/firmware/barkour/common/motor_control_modules:motor_control_module",
+        "//actuator/firmware/barkour/common/motor_control_modules:zero_output_control_module",
+        "//actuator/firmware/barkour/devices/imu:imu_lsm6ds0",
+        "//actuator/firmware/barkour/devices/imu:imu_lsm9ds1",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal:adc",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal:gate_driver",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal:realtime_foc",
+        "@pigweed//pw_chrono:system_clock",
+        "@pigweed//pw_status",
+        "@pigweed//pw_sync:lock_annotations",
+        "@pigweed//pw_sync:thread_notification",
+        "@pigweed//pw_thread:sleep",
+        "@pigweed//pw_thread:thread_core",
+    ],
+)
+
+cc_library(
+    name = "gpio",
+    srcs = ["gpio.cc"],
+    hdrs = ["gpio.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        ":ecat_device",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+pw_cc_test(
+    name = "ds402_state_machine_and_drive_test",
+    srcs = ["integration_tests/ds402_state_machine_and_drive_test.cc"],
+    tags = ["nomsan"],
+    deps = [
+        ":ds402_drive",
+        "//actuator/firmware/barkour/common:board_config",
+        "//actuator/firmware/barkour/common:board_config_headers",
+        "//actuator/firmware/barkour/common:commutation",
+        "//actuator/firmware/barkour/common:ds402_state_machine",
+        "//actuator/firmware/barkour/common:manufacturer_status_register",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "//actuator/firmware/barkour/common/motor_control_modules:control_module_manager",
+        "//actuator/firmware/barkour/common/motor_control_modules:current_control_module",
+        "//actuator/firmware/barkour/common/motor_control_modules:motor_control_module",
+        "//actuator/firmware/barkour/common/motor_control_modules:zero_output_control_module",
+        "//actuator/firmware/barkour/drivers/testing:fake_adc",
+        "//actuator/firmware/barkour/drivers/testing:fake_foc",
+        "//actuator/firmware/barkour/drivers/testing:fake_gate_driver",
+        "@pigweed//pw_containers:flat_map",
+        "@pigweed//pw_unit_test",
+    ],
+)

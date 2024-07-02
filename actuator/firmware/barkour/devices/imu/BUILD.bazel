@@ -1,0 +1,100 @@
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_test")
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "imu_lsm9ds1",
+    srcs = ["lsm9ds1/lsm9ds1_imu.cc"],
+    hdrs = [
+        "lsm9ds1/lsm9ds1_imu.h",
+        "lsm9ds1/lsm9ds1_imu_protocol.h",
+    ],
+    includes = ["lsm9ds1"],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common:math_constants",
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "//actuator/firmware/barkour/common/interfaces:spi_interface",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal/spi",
+        "@stm32cubeh7//:stm32h7_hal",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_bytes",
+        "@pigweed//pw_bytes:bit",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_span",
+        "@pigweed//pw_status",
+        "@pigweed//pw_sync:timed_thread_notification",
+    ],
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+       "@platforms//cpu:armv7e-m": [],
+       "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "imu_lsm6ds0",
+    srcs = ["lsm6ds0/lsm6ds0_imu.cc"],
+    hdrs = [
+        "lsm6ds0/lsm6ds0_imu.h",
+        "lsm6ds0/lsm6ds0_imu_protocol.h",
+    ],
+    includes = ["lsm6ds0"],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "//actuator/firmware/barkour/common/interfaces:spi_interface",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal/spi",
+        "//actuator/firmware/targets/m4:freertos_config",
+        "@stm32cubeh7//:stm32h7_hal",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_sync:timed_thread_notification",
+    ],
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+       "@platforms//cpu:armv7e-m": [],
+       "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "imu_fake",
+    srcs = ["testing/fake_imu.cc"],
+    hdrs = [
+        "testing/fake_imu.h",
+    ],
+    includes = ["testing"],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "lsm9ds1_imu_on_target_test",
+    srcs = ["lsm9ds1/lsm9ds1_imu_on_target_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+    deps = [
+        ":imu_lsm9ds1",
+        "@pigweed//pw_log",
+        "@pigweed//pw_unit_test",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)

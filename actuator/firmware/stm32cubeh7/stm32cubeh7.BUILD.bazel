@@ -1,0 +1,121 @@
+# HAL Headers for Cortex-M4
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "stm32h7_hal",
+    srcs = glob(
+        [
+            "Drivers/STM32H7xx_HAL_Driver/Src/**/*.c",
+        ],
+        exclude = ["Drivers/STM32H7xx_HAL_Driver/Src/**/*template.c"],
+    ),
+    hdrs = glob([
+        "Drivers/STM32H7xx_HAL_Driver/Inc/*.h",
+        "Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h",
+    ]),
+    includes = ["Drivers/STM32H7xx_HAL_Driver/Inc",],
+
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+       "@platforms//cpu:armv7e-m": [],
+       "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+    deps = [
+      ":cmsis_headers",
+       ":hal_config"
+    ],
+)
+
+cc_library(
+    name = "cmsis_headers",
+    hdrs = [
+      "Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h",
+      "Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h755xx.h",
+      "Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h",
+    ],
+    includes = [
+        "Drivers/CMSIS/Device/ST/STM32H7xx/Include/",
+    ],
+    tags = ["nobuilder"],
+
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+       "@platforms//cpu:armv7e-m": [],
+       "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+    deps = [
+      ":cmsis_core",
+      ":hal_config"
+    ]
+)
+
+cc_library(
+    name = "cmsis_core",
+    hdrs = glob([
+        "Drivers/CMSIS/Core/Include/*.h",
+    ]),
+    includes = [
+        "Drivers/CMSIS/Core/Include/",
+    ],
+    tags = ["nobuilder"],
+
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+       "@platforms//cpu:armv7e-m": [],
+       "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+    deps = [":hal_config"],
+)
+
+cc_library(
+    name = "arm_math",
+    srcs = glob(["Drivers/CMSIS/DSP/Source/**/arm_*.c"]),
+    hdrs = [
+        "Drivers/CMSIS/DSP/Include/arm_common_tables.h",
+        "Drivers/CMSIS/DSP/Include/arm_const_structs.h",
+        "Drivers/CMSIS/DSP/Include/arm_math.h",
+    ],
+    includes = ["Drivers/CMSIS/DSP/Include"],
+
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+      "@platforms//cpu:armv7e-m": [],
+      "@platforms//cpu:armv7e-mf": [],
+      "//conditions:default": ["@platforms//:incompatible"],
+    }),
+    # Can only be built using the gcc-arm toolchain, which is not registered.
+    tags = ["nobuilder"],
+    deps = [
+        ":cmsis_headers",
+        ":hal_config"
+    ],
+)
+
+filegroup(
+    name = "gcc_startup_stm32h755xx",
+    srcs = [
+        "Drivers/CMSIS/Device/ST/STM32H7xx/Source/Templates/gcc/startup_stm32h755xx.s",
+    ],
+)
+
+filegroup(
+    name = "system_stm32h7xx_dualcore_boot_cm4_cm7",
+    srcs = [
+        "Drivers/CMSIS/Device/ST/STM32H7xx/Source/Templates/system_stm32h7xx_dualcore_boot_cm4_cm7.c",
+    ],
+)
+
+label_flag(
+  name = "hal_config",
+  build_setting_default = ":default_hal_config",
+)
+
+cc_library(
+    name = "default_hal_config",
+    target_compatible_with = ["@platforms//:incompatible"],
+)
+
+

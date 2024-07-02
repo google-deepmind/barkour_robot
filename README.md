@@ -107,8 +107,6 @@ We also provide [a hostside example](docs/motor_control.md) to control the
 actuators via EtherCAT and a guide to
 [configure EtherCAT](docs/ethercat_config.md).
 
-Note: We are cleaning up our firmware and will upload it to the repository soon.
-
 ## Hardware capabilities
 
 The gifs below illustrate the hardware capabilities of the Barkour Robot

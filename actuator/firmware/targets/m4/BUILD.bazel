@@ -1,0 +1,158 @@
+# M4 target (platform) configuration.
+load("//actuator/firmware/targets/m4:m4.bzl", "M4_STM_DEFINES")
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "hal_config",
+    hdrs = ["stm32h7xx_hal_conf.h"],
+    defines = M4_STM_DEFINES,
+    includes = ["."],
+    tags = ["nobuilder"],
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "core_init_m4",
+    srcs = [
+        "stm32h7xx_hal_msp.c",
+        "stm32h7xx_hal_timebase_tim.c",
+        "stm32h7xx_it.c",
+        "@stm32cubeh7//:gcc_startup_stm32h755xx",
+        "@stm32cubeh7//:system_stm32h7xx_dualcore_boot_cm4_cm7",
+    ],
+    tags = ["nobuilder"],
+    deps = [
+        ":hal_config",
+        "@stm32cubeh7//:arm_math",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+    alwayslink = 1,
+)
+
+cc_library(
+    name = "timebase",
+    srcs = ["stm32h7xx_hal_timebase_tim.c"],
+    tags = ["nobuilder"],
+    deps = [
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "freertos_config",
+    hdrs = ["FreeRTOSConfig.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    target_compatible_with = [":freertos_config_m4"],
+    deps = [
+        # Defines SystemD2Clock
+        ":core_init_m4",
+        "@pigweed//third_party/freertos:config_assert",
+    ],
+)
+
+constraint_value(
+    name = "freertos_config_m4",
+    constraint_setting = "@freertos//:freertos_config_setting",
+)
+
+platform(
+    name = "platform",
+    constraint_values = [
+        # For FreeRTOS
+        # FreeRTOS configuration file
+        ":freertos_config_m4",
+        "@freertos//:port_ARM_CM4F",
+        "@freertos//:disable_task_statics",
+        "@freertos//:no_malloc",
+
+        # For Pigweed
+        # Mbed-TLS
+        "@pigweed//pw_crypto:sha256_mbedtls_backend",
+        "@pigweed//pw_interrupt_cortex_m:backend",
+        "@pigweed//pw_build/constraints/rtos:freertos",
+
+        # For toolchain resolution.
+        "@platforms//cpu:armv7e-m",
+        "@platforms//os:none",
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m4",
+    ],
+)
+
+cc_library(
+    name = "stm32_tim7_notifier",
+    srcs = ["stm32_tim7_notifier.cc"],
+    hdrs = ["stm32_tim7_notifier.h"],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:timer_notifier_interface",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_sync:thread_notification",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "barkour_system_impl",
+    srcs = ["barkour_system.cc"],
+    tags = ["nobuilder"],
+    deps = [
+        ":barkour_system_native",
+        ":stm32_tim7_notifier",
+        "//actuator/firmware/barkour/common:barkour_system_headers",
+        "@pigweed//pw_status",
+        "@pigweed//pw_thread:thread",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "barkour_system_native_hdrs",
+    hdrs = ["barkour_system_native.h"],
+    tags = ["nobuilder"],
+    deps = [
+        ":stm32_tim7_notifier",
+        "@pigweed//pw_result",
+        "@pigweed//pw_thread:thread",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "barkour_system_native",
+    srcs = ["barkour_system_native.cc"],
+    tags = ["nobuilder"],
+    deps = [
+        ":barkour_system_native_hdrs",
+        "//actuator/firmware/barkour/common:barkour_system_headers",
+        "//actuator/firmware/barkour/common/interfaces:gpio_debug_interface",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "mbedtls_config",
+    hdrs = ["mbedtls/mbedtls_config.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    })
+)

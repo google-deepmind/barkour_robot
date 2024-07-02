@@ -1,0 +1,86 @@
+# M7 target (platform) configuration.
+load("//actuator/firmware/targets/m7:m7.bzl", "M7_STM_DEFINES")
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+
+cc_library(
+    name = "hal_config",
+    hdrs = ["stm32h7xx_hal_conf.h"],
+    defines = M7_STM_DEFINES,
+    includes = ["."],
+    tags = ["nobuilder"],
+    # Only compatible with ARMv7e CPUs.
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "core_init_m7",
+    srcs = [
+        "stm32h7xx_hal_msp.c",
+        "stm32h7xx_hal_timebase_tim.c",
+        "stm32h7xx_it.c",
+        "@stm32cubeh7//:gcc_startup_stm32h755xx",
+        "@stm32cubeh7//:system_stm32h7xx_dualcore_boot_cm4_cm7",
+    ],
+    tags = ["nobuilder"],
+    deps = [
+        "@stm32cubeh7//:cmsis_headers",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "timebase",
+    srcs = ["stm32h7xx_hal_timebase_tim.c"],
+    tags = ["nobuilder"],
+    deps = [
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+cc_library(
+    name = "freertos_config",
+    hdrs = ["FreeRTOSConfig.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    target_compatible_with = [":freertos_config_m7"],
+    deps = ["@pigweed//third_party/freertos:config_assert"],
+)
+
+constraint_value(
+    name = "freertos_config_m7",
+    constraint_setting = "@freertos//:freertos_config_setting",
+)
+
+platform(
+    name = "platform",
+    constraint_values = [
+        # FreeRTOS config for the M7.
+        ":freertos_config_m7",
+        "@freertos//:port_ARM_CM7",
+        "@freertos//:disable_task_statics",
+        "@freertos//:no_malloc",
+
+        # Necessary for target_compatible_with reasons, but also chooses the
+        # right backends for pw_sync:mutex, say.
+        "@pigweed//pw_build/constraints/rtos:freertos",
+        "@pigweed//pw_interrupt_cortex_m:backend",
+
+        # For toolchain resolution.
+        "@platforms//cpu:armv7e-m",
+        "@platforms//os:none",
+        "@pw_toolchain//constraints/arm_mcpu:cortex-m7",
+    ],
+)

@@ -1,0 +1,506 @@
+load("//actuator/firmware:barkour.bzl", "HARDWARE_VERSION")
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_test")
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "board_config_headers",
+    hdrs = ["board_config.h"],
+    includes = ["."],
+    deps = [
+        "@pigweed//pw_status",
+    ],
+)
+
+alias(
+    name = "board_config",
+    actual = select({
+        "@platforms//cpu:armv7e-m": "//actuator/firmware/barkour/m4:board_config",
+        "//conditions:default": "//actuator/firmware/barkour/testing:board_config",
+    }),
+)
+
+cc_library(
+    name = "shared_memory",
+    hdrs = ["shared_memory.h"],
+    includes = ["."],
+)
+
+cc_library(
+    name = "barkour_system_headers",
+    hdrs = ["barkour_system.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        ":barkour_system_native_hdrs",
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "//actuator/firmware/barkour/common/interfaces:timer_notifier_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_thread:thread",
+    ],
+)
+
+alias(
+    name = "barkour_system_native_hdrs",
+    actual = select({
+        "@platforms//cpu:armv7e-m": "//actuator/firmware/targets/m4:barkour_system_native_hdrs",
+        # There's no other backend for barkour_system at this time.
+        "//conditions:default": "//actuator/firmware/targets/m4:barkour_system_native_hdrs",
+    }),
+)
+
+alias(
+    name = "barkour_system",
+    actual = select({
+        "@platforms//cpu:armv7e-m": "//actuator/firmware/targets/m4:barkour_system_impl",
+        # There's no other backend for barkour_system at this time.
+        "//conditions:default": "//actuator/firmware/targets/m4:barkour_system_impl",
+    }),
+)
+
+cc_library(
+    name = "async_uart_logger",
+    srcs = ["async_uart_logger.cc"],
+    hdrs = ["async_uart_logger.h"],
+    tags = ["nobuilder"],
+    deps = [
+        "@pigweed//pw_assert",
+        "@pigweed//pw_bytes",
+        "@pigweed//pw_result",
+        "@pigweed//pw_ring_buffer",
+        "@pigweed//pw_span",
+        "@pigweed//pw_string:builder",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "code_version",
+    hdrs = ["code_version.h"],
+    includes = ["."],
+)
+
+pw_cc_test(
+    name = "code_version_test",
+    srcs = ["code_version_test.cc"],
+    deps = [
+        ":code_version",
+        "@pigweed//pw_log",
+        "@pigweed//pw_log:facade",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "math_constants",
+    hdrs = ["math_constants.h"],
+    includes = ["."],
+)
+
+cc_library(
+    name = "phase_sample_selection",
+    hdrs = ["phase_sample_selection.h"],
+    includes = ["."],
+)
+
+cc_library(
+    name = "commutation",
+    srcs = ["commutation.cc"],
+    hdrs = ["commutation.h"],
+    includes = ["."],
+    deps = [
+        ":foc_math",
+    ],
+)
+
+pw_cc_test(
+    name = "commutation_test",
+    srcs = ["commutation_test.cc"],
+    deps = [
+        ":commutation",
+        ":foc_math",
+        ":math_constants",
+        ":phase_order",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "phase_order",
+    hdrs = ["phase_order.h"],
+    includes = ["."],
+)
+
+cc_library(
+    name = "foc_math",
+    srcs = ["foc_math.cc"],
+    hdrs = ["foc_math.h"],
+    includes = ["."],
+    deps = [
+        ":math_constants",
+        ":trigonometry",
+    ],
+)
+
+pw_cc_test(
+    name = "foc_math_test",
+    srcs = ["foc_math_test.cc"],
+    deps = [
+        ":foc_math",
+        ":math_constants",
+        "@pigweed//pw_log",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "trigonometry",
+    srcs = select({
+        "@platforms//cpu:armv7e-m": ["trigonometry_impl_arm.cc"],
+        "//conditions:default": ["trigonometry_impl_native.cc"],
+    }),
+    hdrs = ["trigonometry.h"],
+    deps = select({
+        "@platforms//cpu:armv7e-m": [
+            ":math_constants",
+            "@stm32cubeh7//:arm_math",
+        ],
+        "//conditions:default": [],
+    }),
+)
+
+cc_library(
+    name = "sensor_reading_types",
+    hdrs = ["sensor_reading_types.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+    ],
+)
+
+cc_library(
+    name = "ds402_state_machine",
+    srcs = ["ds402_state_machine.cc"],
+    hdrs = ["ds402_state_machine.h"],
+    includes = ["."],
+    deps = [
+        ":manufacturer_status_register",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "@pigweed//pw_log",  # buildcleaner: keep
+        "@pigweed//pw_log:facade",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_string:builder",
+    ],
+)
+
+pw_cc_test(
+    name = "ds402_state_machine_test",
+    srcs = ["ds402_state_machine_test.cc"],
+    deps = [
+        ":ds402_state_machine",
+        ":manufacturer_status_register",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "manufacturer_status_register",
+    hdrs = ["manufacturer_status_register.h"],
+    includes = ["."],
+)
+
+pw_cc_test(
+    name = "manufacturer_status_register_test",
+    srcs = ["manufacturer_status_register_test.cc"],
+    deps = [
+        ":manufacturer_status_register",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "serial_number",
+    srcs = ["serial_number.cc"],
+    hdrs = ["serial_number.h"],
+    tags = ["nobuilder"],
+    deps = [
+        ":shared_memory",
+        "@pigweed//pw_bytes",
+        "@pigweed//pw_crypto:sha256",  # buildcleaner: keep
+        "@pigweed//pw_crypto:sha256_facade",
+        "@mbedtls//:mbedtls",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+pw_cc_test(
+    name = "serial_number_test",
+    srcs = ["serial_number_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    # This test can only be run on actual hardware: it attempts to read
+    # hardcoded memory addresses. On a machine in the cloud this will just
+    # result in out-of-bounds memory access.
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+    deps = [
+        ":serial_number",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "read_sensors",
+    srcs = ["read_sensors.cc"],
+    hdrs = ["read_sensors.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        ":adc_conversions",
+        ":sensor_reading_types",
+        "//actuator/firmware/barkour/common/interfaces:adc_interface",
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "//actuator/firmware/barkour/common/interfaces:realtime_foc_interface",
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "read_sensors_test",
+    srcs = ["read_sensors_test.cc"],
+    deps = [
+        ":foc_math",
+        ":math_constants",
+        ":read_sensors",
+        ":sensor_reading_types",
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "//actuator/firmware/barkour/devices/imu:imu_fake",
+        "//actuator/firmware/barkour/drivers/testing:fake_adc",
+        "//actuator/firmware/barkour/drivers/testing:fake_foc",
+        "//actuator/firmware/barkour/drivers/testing:fake_gate_driver",
+        "//actuator/firmware/barkour/drivers/testing:fake_rotary_encoder",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "adc_conversions",
+    srcs = ["adc_conversions.cc"],
+    hdrs = ["adc_conversions.h"],
+    copts = [
+        # The source file contains dedicated definitions for multiple
+        # gebru/cortes versions, but only one is ultimately used.
+        "-Wno-unused-function",
+    ],
+    defines = HARDWARE_VERSION,
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:adc_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "cycle_counter",
+    srcs = ["cycle_counter.cc"],
+    hdrs = ["cycle_counter.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:cycle_counter_interface",
+        "//actuator/firmware/targets/m4:hal_config",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+)
+
+pw_cc_test(
+    name = "cycle_counter_test",
+    srcs = ["cycle_counter_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    target_compatible_with = select({
+        "@platforms//cpu:armv7e-m": [],
+        "@platforms//cpu:armv7e-mf": [],
+        "//conditions:default": ["@platforms//:incompatible"],
+    }),
+    deps = [
+        ":cycle_counter",
+        "@pigweed//pw_unit_test",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+cc_library(
+    name = "multiturn_encoder_wrapper",
+    srcs = ["multiturn_encoder_wrapper.cc"],
+    hdrs = ["multiturn_encoder_wrapper.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+    ],
+)
+
+pw_cc_test(
+    name = "multiturn_encoder_wrapper_test",
+    srcs = ["multiturn_encoder_wrapper_test.cc"],
+    deps = [
+        ":multiturn_encoder_wrapper",
+        "//actuator/firmware/barkour/drivers/testing:fake_rotary_encoder",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "canopen_unit_conversions",
+    srcs = ["canopen_unit_conversions.cc"],
+    hdrs = ["canopen_unit_conversions.h"],
+    deps = [
+        ":math_constants",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "canopen_unit_conversions_test",
+    srcs = ["canopen_unit_conversions_test.cc"],
+    deps = [
+        ":canopen_unit_conversions",
+        ":math_constants",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "pid_controller",
+    srcs = ["pid_controller.cc"],
+    hdrs = ["pid_controller.h"],
+    deps = [
+        "@pigweed//pw_log",
+    ],
+)
+
+cc_library(
+    name = "derived_sensor_information",
+    srcs = ["derived_sensor_information.cc"],
+    hdrs = ["derived_sensor_information.h"],
+    deps = [
+        ":canopen_unit_conversions",
+        ":math_constants",
+        ":sensor_reading_types",
+        "//actuator/firmware/barkour/common/interfaces:signal_filter_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "derived_sensor_information_test",
+    srcs = ["derived_sensor_information_test.cc"],
+    deps = [
+        ":derived_sensor_information",
+        ":foc_math",
+        ":math_constants",
+        ":phase_order",
+        ":sensor_reading_types",
+        "//actuator/firmware/barkour/common/interfaces:signal_filter_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "simple_lowpass_iir_filter",
+    srcs = ["simple_lowpass_iir_filter.cc"],
+    hdrs = ["simple_lowpass_iir_filter.h"],
+    deps = [
+        ":math_constants",
+        "//actuator/firmware/barkour/common/interfaces:signal_filter_interface",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_log",
+    ],
+)
+
+pw_cc_test(
+    name = "simple_lowpass_iir_filter_test",
+    srcs = ["simple_lowpass_iir_filter_test.cc"],
+    deps = [
+        ":math_constants",
+        ":simple_lowpass_iir_filter",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "thermal_monitor",
+    hdrs = ["thermal_monitor.h"],
+    deps = [
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "thermal_monitor_test",
+    srcs = ["thermal_monitor_test.cc"],
+    deps = [
+        ":thermal_monitor",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "test_runner",
+    testonly = True,
+    srcs = ["test_runner.cc"],
+    hdrs = ["test_runner.h"],
+    includes = ["."],
+    deps = [
+        "@pigweed//pw_function",
+        "@pigweed//pw_log",
+        "@pigweed//pw_unit_test",
+        "@pigweed//pw_unit_test:event_handler",
+        "@pigweed//pw_unit_test:logging_event_handler",
+    ],
+)

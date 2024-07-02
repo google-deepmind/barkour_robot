@@ -1,0 +1,103 @@
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "gpio_debug_interface",
+    hdrs = ["gpio_debug_interface.h"],
+    includes = ["."],
+    deps = [
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "rotary_encoder_interface",
+    hdrs = ["rotary_encoder_interface.h"],
+    includes = ["."],
+    deps = [
+        "@pigweed//pw_result",
+    ],
+)
+
+cc_library(
+    name = "imu_interface",
+    hdrs = ["imu_interface.h"],
+    includes = ["."],
+    deps = [
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "spi_interface",
+    hdrs = ["spi_interface.h"],
+    includes = ["."],
+    deps = [
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "timer_notifier_interface",
+    hdrs = ["timer_notifier_interface.h"],
+    includes = ["."],
+    deps = [
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@pigweed//pw_sync:thread_notification",
+    ],
+)
+
+cc_library(
+    name = "adc_interface",
+    hdrs = ["adc_interface.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "@pigweed//pw_result",
+    ],
+)
+
+cc_library(
+    name = "gate_driver_interface",
+    hdrs = ["gate_driver_interface.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "realtime_foc_interface",
+    hdrs = ["realtime_foc_interface.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:phase_order",
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "cycle_counter_interface",
+    hdrs = ["cycle_counter_interface.h"],
+    includes = ["."],
+)
+
+cc_library(
+    name = "signal_filter_interface",
+    hdrs = ["signal_filter_interface.h"],
+    includes = ["."],
+)
+
+cc_library(
+    name = "memory_interface",
+    hdrs = ["memory_interface.h"],
+    includes = [".", "firmware"],
+    deps = ["@pigweed//pw_status"],
+)

@@ -1,0 +1,24 @@
+# Drivers for Texas Instruments DRV8353
+
+package(
+    default_applicable_licenses = ["//:license"],
+    default_visibility = [
+        "//actuator/firmware:__subpackages__",
+    ],
+)
+
+cc_library(
+    name = "drv8353",
+    srcs = ["drv8353.cc"],
+    hdrs = ["drv8353.h"],
+    copts = ["-Wno-unused-variable"],
+    includes = ["."],
+    # Requires stm32cube to be configured, so can't be built for the default
+    # platform.
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common:cycle_counter",
+        "@freertos//:freertos",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)

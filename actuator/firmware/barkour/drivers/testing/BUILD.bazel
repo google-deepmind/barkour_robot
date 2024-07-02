@@ -1,0 +1,64 @@
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "fake_adc",
+    hdrs = ["fake_adc.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "//actuator/firmware/barkour/common/interfaces:adc_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "fake_foc",
+    hdrs = ["fake_foc.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:phase_order",
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "//actuator/firmware/barkour/common/interfaces:realtime_foc_interface",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "fake_gate_driver",
+    srcs = ["fake_gate_driver.cc"],
+    hdrs = ["fake_gate_driver.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "fake_imu",
+    hdrs = ["fake_imu.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:imu_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+cc_library(
+    name = "fake_rotary_encoder",
+    hdrs = ["fake_rotary_encoder.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)

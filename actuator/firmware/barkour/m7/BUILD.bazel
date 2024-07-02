@@ -1,0 +1,84 @@
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_binary", "pw_cc_test")
+load("//actuator/firmware:elf_bin.bzl", "elf_bin")
+
+# M7 core firmware
+load("//actuator/firmware:barkour.bzl", "m7_binary")
+load("//actuator/firmware/targets/m7:m7.bzl", "M7_STM_DEFINES")
+
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+# Many pieces are already in place (in the `select` statements). But we're
+# missing a host implementation of the stm32cube HAL, which board_setup_m7.h
+# pulls in.
+pw_cc_binary(
+    name = "m7_cc_binary",
+    srcs = [
+        "board_setup_m7.cc",
+        "board_setup_m7.h",
+        "main_m7.cc",
+    ],
+    additional_linker_inputs = ["stm32h755xx_flash_CM7.ld"],
+    linkopts = [
+        "-T $(location stm32h755xx_flash_CM7.ld)",
+    ],
+    local_defines = M7_STM_DEFINES,
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    # You can only build this for a platform that specifies the correct FreeRTOS config.
+    target_compatible_with = [
+      "@platforms//cpu:armv7e-m",
+      "//actuator/firmware/targets/m7:freertos_config_m7",
+    ],
+    deps = [
+        "//actuator/firmware/barkour/common:shared_memory",
+        "//actuator/firmware/targets/m7:core_init_m7",
+        "@freertos//:freertos",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_sys_io",
+        "@pigweed//pw_system:init",
+        "@pigweed//pw_system:io",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+# This genrule needs to live between a m7_binary transition and the m7_cc_binary target to ensure
+# the right cc toolchain is selected, which in turn ensures the correct OBJCOPY tool is available.
+genrule(
+    name = "m7_binary",
+    srcs = [":m7_cc_binary"],
+    outs = ["m7_bin"],
+    cmd = "$(location @gcc_arm_none_eabi_toolchain//:arm-none-eabi-objcopy) -O binary $(<) $(@)",
+    executable = True,
+    tags = ["notap"],
+    toolchains = ["@bazel_tools//tools/cpp:current_cc_toolchain"],
+    tools = ["@gcc_arm_none_eabi_toolchain//:arm-none-eabi-objcopy"],
+)
+
+m7_binary(
+    name = "m7.bin",
+    binary = ":m7_binary",
+    tags = ["notap"],
+)
+
+m7_binary(
+    name = "m7.elf",
+    binary = ":m7_cc_binary",
+    tags = ["notap"],
+)
+
+# A custom pw_sys_io backend for the M7.
+cc_library(
+    name = "sys_io_impl",
+    srcs = ["sys_io_impl.cc"],
+    copts = ["-Wno-unused-parameter"],
+    deps = [
+        "@pigweed//pw_bytes",
+        "@pigweed//pw_status",
+        "@pigweed//pw_sys_io:facade",
+    ],
+)

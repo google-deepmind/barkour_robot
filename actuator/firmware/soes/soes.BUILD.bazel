@@ -1,0 +1,68 @@
+# SOES
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "soes",
+    srcs = [
+        "soes/ecat_slv.c",
+        "soes/esc.c",
+        "soes/esc_coe.c",
+        "soes/esc_foe.c",
+    ],
+    hdrs = [
+        "soes/ecat_slv.h",
+        "soes/esc.h",
+        "soes/esc_coe.h",
+        "soes/esc_eoe.h",
+        "soes/esc_foe.h",
+        "soes/options.h",
+    ],
+    includes = [
+      ".",
+      "soes",
+    ],
+    deps = [
+        ":ecat_options",
+        ":objectlist",
+        ":cc_config",
+    ],
+)
+
+cc_library(
+    name = "esc_coe_header",
+    hdrs = ["soes/esc_coe.h"],
+    deps = [":cc_config",],
+)
+
+# Label flag that points to the cc_library target providing cc_config
+label_flag(
+    name = "cc_config",
+    build_setting_default = ":default_cc_config",
+)
+
+cc_library(
+    name = "default_cc_config",
+    target_compatible_with = ["@platforms//:incompatible"],
+)
+
+# Label flag that points to the cc_library target providing objectlist
+label_flag(
+    name = "objectlist",
+    build_setting_default = ":default_objectlist",
+)
+
+cc_library(
+    name = "default_objectlist",
+    target_compatible_with = ["@platforms//:incompatible"],
+)
+
+# Label flag that points to the cc_library target providing ecat_options
+label_flag(
+    name = "ecat_options",
+    build_setting_default = ":default_ecat_options",
+)
+
+cc_library(
+    name = "default_ecat_options",
+    target_compatible_with = ["@platforms//:incompatible"],
+)

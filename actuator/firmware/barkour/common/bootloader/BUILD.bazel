@@ -1,0 +1,47 @@
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_test")
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "bootloader",
+    srcs = ["bootloader.cc"],
+    hdrs = ["bootloader.h"],
+    tags = ["nobuilder"],
+    target_compatible_with = ["@platforms//cpu:armv7e-m"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:memory_interface",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal/memory",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+        "@pigweed//pw_string:string",
+    ],
+)
+
+cc_library(
+    name = "bootloader_for_test",
+    srcs = ["bootloader.cc"],
+    hdrs = ["bootloader.h"],
+    includes = ["."],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:memory_interface",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal/memory:fake_memory",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+        "@pigweed//pw_string:string",
+    ],
+)
+
+pw_cc_test(
+    name = "bootloader_test",
+    srcs = ["bootloader_test.cc"],
+    includes = ["."],
+    deps = [
+        ":bootloader_for_test",
+        "//actuator/firmware/barkour/common/interfaces:memory_interface",
+        "//actuator/firmware/barkour/drivers/stm32h7_hal/memory:fake_memory",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)

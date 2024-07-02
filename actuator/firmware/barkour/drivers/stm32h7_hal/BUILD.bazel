@@ -1,0 +1,210 @@
+load("//actuator/firmware:barkour.bzl", "HARDWARE_VERSION")
+load("@pigweed//pw_build:pigweed.bzl", "pw_cc_test")
+package(
+  default_applicable_licenses = ["//:license"],
+  default_visibility = ["//actuator/firmware:__subpackages__"],
+)
+
+cc_library(
+    name = "gpio_debug",
+    srcs = ["gpio_debug.cc"],
+    hdrs = ["gpio_debug.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:gpio_debug_interface",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+pw_cc_test(
+    name = "gpio_debug_test",
+    srcs = ["gpio_debug_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    deps = [
+        ":gpio_debug",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "aksim2_encoder",
+    srcs = ["aksim2_encoder.cc"],
+    hdrs = ["aksim2_encoder.h"],
+    defines = HARDWARE_VERSION,
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "@freertos//:freertos",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+    alwayslink = 1,
+)
+
+cc_library(
+    name = "ma732_encoder",
+    srcs = ["ma732_encoder.cc"],
+    hdrs = ["ma732_encoder.h"],
+    defines = HARDWARE_VERSION,
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "@freertos//:freertos",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+pw_cc_test(
+    name = "ma732_encoder_test",
+    srcs = ["ma732_encoder_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    deps = [
+        ":ma732_encoder",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "adc",
+    srcs = ["adc.cc"],
+    hdrs = ["adc.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        ":gpio_debug",
+        ":realtime_foc",
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "//actuator/firmware/barkour/common/interfaces:adc_interface",
+        "//actuator/firmware/barkour/common/interfaces:gpio_debug_interface",
+        "//actuator/firmware/barkour/common/interfaces:realtime_foc_interface",
+        "@freertos//:freertos",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_span",
+        "@pigweed//pw_status",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+pw_cc_test(
+    name = "adc_test",
+    srcs = ["adc_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    deps = [
+        ":adc",
+        ":gate_driver",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "gate_driver",
+    srcs = ["gate_driver.cc"],
+    hdrs = ["gate_driver.h"],
+    includes = ["."],
+    tags = ["nobuilder"],
+    deps = [
+        ":adc",
+        "//actuator/firmware/barkour/common:board_config_headers",
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "//actuator/firmware/drv8353:drv8353",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_span",
+        "@pigweed//pw_status",
+        "@stm32cubeh7//:stm32h7_hal",
+    ],
+)
+
+pw_cc_test(
+    name = "gate_driver_test",
+    srcs = ["gate_driver_test.cc"],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    deps = [
+        ":gate_driver",
+        "//actuator/firmware/barkour/common:board_config",
+        "//actuator/firmware/barkour/common:cycle_counter",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
+
+cc_library(
+    name = "realtime_foc",
+    srcs = ["realtime_foc.cc"],
+    hdrs = ["realtime_foc.h"],
+    tags = ["nobuilder"],
+    deps = [
+        "//actuator/firmware/barkour/common:adc_conversions",
+        "//actuator/firmware/barkour/common:commutation",
+        "//actuator/firmware/barkour/common:derived_sensor_information",
+        "//actuator/firmware/barkour/common:foc_math",
+        "//actuator/firmware/barkour/common:math_constants",
+        "//actuator/firmware/barkour/common:phase_sample_selection",
+        "//actuator/firmware/barkour/common:pid_controller",
+        "//actuator/firmware/barkour/common:trigonometry",
+        "//actuator/firmware/barkour/common/interfaces:adc_interface",
+        "//actuator/firmware/barkour/common/interfaces:gate_driver_interface",
+        "//actuator/firmware/barkour/common/interfaces:gpio_debug_interface",
+        "//actuator/firmware/barkour/common/interfaces:realtime_foc_interface",
+        "//actuator/firmware/barkour/common/interfaces:rotary_encoder_interface",
+        "@freertos//:freertos",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_log",
+        "@pigweed//pw_result",
+        "@pigweed//pw_status",
+    ],
+)
+
+pw_cc_test(
+    name = "realtime_foc_test",
+    srcs = [
+        "foc_commutation_test_data.h",
+        "realtime_foc_test.cc",
+    ],
+    tags = [
+        "nobuilder",
+        "notap",
+    ],
+    deps = [
+        ":realtime_foc",
+        "//actuator/firmware/barkour/common:adc_conversions",
+        "//actuator/firmware/barkour/common:derived_sensor_information",
+        "//actuator/firmware/barkour/drivers/testing:fake_adc",
+        "//actuator/firmware/barkour/drivers/testing:fake_gate_driver",
+        "//actuator/firmware/barkour/drivers/testing:fake_rotary_encoder",
+        "@pigweed//pw_assert",
+        "@pigweed//pw_log",
+        "@pigweed//pw_status",
+        "@pigweed//pw_unit_test",
+    ],
+)
