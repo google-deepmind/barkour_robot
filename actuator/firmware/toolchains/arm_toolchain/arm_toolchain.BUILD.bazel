@@ -50,8 +50,6 @@ pw_cc_tool(
         "@platforms//os:windows": "//:bin/arm-none-eabi-g++.exe",
         "//conditions:default": "//:bin/arm-none-eabi-g++",
     }),
-    #additional_files = glob(["**/*"])
-    #additional_files = [":all_files", "arm-none-eabi/include/**", "arm-none-eabi/bin/*",],
     additional_files = glob([
         "**/*.spec",
         "**/*.specs",
@@ -103,15 +101,6 @@ pw_cc_tool(
         "@platforms//os:windows": "//:bin/arm-none-eabi-g++.exe",
         "//conditions:default": "//:bin/arm-none-eabi-g++",
     }),
-    #additional_files = glob([
-    #    "**/*.a",
-    #    "**/*.ld",
-    #    "**/*.o",
-    #    "**/*.spec",
-    #    "**/*.specs",
-    #    "**/*.so",
-    #    "lib/**",
-    #]),
     additional_files = glob([
         "**/*",
     ]),

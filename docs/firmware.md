@@ -27,8 +27,7 @@ To build the firmware binaries and helper scripts, run:
 
 ```
 # From the top-level directory:
-bazel build //actuator/firmware/barkour/m7:m7.elf --platforms=//actuator/firmware/targets/m7:platform
-bazel build //actuator/firmware/barkour/m4:m4.elf --platforms=//actuator/firmware/targets/m4:platform
+bazel build //actuator/firmware/...
 ```
 
 ### Unit Tests
@@ -103,13 +102,13 @@ script. That is due to multiple dependencies being required at runtime including
 external libraries.
 
 ```
-./helper --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --device_alias <device_alias>
+bazel run //actuator/firmware/scripts:helper -- --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --device_alias <device_alias>
 ```
 
 An example of updating a single device with expected output:
 
 ```
-user@ethercat-host:~/binaries_foe$ ./helper --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --device_alias 3
+user@ethercat-host:~/binaries_foe$ bazel run //actuator/firmware/scripts:helper -- --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --device_alias 3
 INFO:absl:Flashing firmware over ethercat
 INFO:absl:M4 binary path: new_fw/m4.bin
 INFO:absl:M7 binary path: new_fw/m7.bin
@@ -138,13 +137,13 @@ To flash all EtherCAT devices, `helper` can be invoked with `--all` flag as
 below,
 
 ```
-./helper --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --all
+bazel run //actuator/firmware/scripts:helper -- --flash --tool ecat --m4 <path to m4.bin> --m7 <path to m7.bin> --all
 ```
 
 An example of updating all devices with expected output:
 
 ```
-user@ethercat-host:~/binaries_foe$ ./helper --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --all
+user@ethercat-host:~/binaries_foe$ bazel run //actuator/firmware/scripts:helper -- --flash --tool ecat --m4 new_fw/m4.bin --m7 new_fw/m7.bin --all
 INFO:absl:Flashing firmware over ethercat
 INFO:absl:M4 binary path: new_fw/m4.bin
 INFO:absl:M7 binary path: new_fw/m7.bin
